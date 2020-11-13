@@ -12,8 +12,8 @@ class Particle {
     ci::Vec2f position;
     float radius;
     float direction;
-    float velocity;
-
+    ci::Vec2f velocity;
+    Particle(Vec2f location);
     void Particle::update();
     void Particle::draw();
 };
