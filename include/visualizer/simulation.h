@@ -2,8 +2,8 @@
 // Created by Kaleigh Spitzer on 11/1/20.
 //
 
-#ifndef IDEAL_GAS_SPITZER4_SKETCHPAD_H
-#define IDEAL_GAS_SPITZER4_SKETCHPAD_H
+#ifndef IDEAL_GAS_SPITZER4_SIMULATION_H
+#define IDEAL_GAS_SPITZER4_SIMULATION_H
 
 #include "../../../../include/cinder/gl/gl.h"
 
@@ -15,7 +15,7 @@ namespace idealgas {
  * mouse events. Furthermore, the sketchpad can output its current state in the
  * same format as the Naive Bayes image data files.
  */
-        class Sketchpad {
+        class Simulation {
         public:
             /**
              * Creates a sketchpad.
@@ -66,4 +66,4 @@ namespace idealgas {
     }
 }
 
-#endif //IDEAL_GAS_SPITZER4_SKETCHPAD_H
+#endif //IDEAL_GAS_SPITZER4_SIMULATION_H

@@ -2,7 +2,7 @@
 // Created by Kaleigh Spitzer on 11/1/20.
 //
 
-#include <visualizer/sketchpad.h>
+#include <visualizer/simulation.h>
 
 namespace idealgas {
     namespace visualizer {
