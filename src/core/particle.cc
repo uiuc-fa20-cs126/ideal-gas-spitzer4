@@ -6,8 +6,8 @@
 
 Particle::Particle(glm::vec2 new_position) {
     position = new_position;
-    direction = Rand::randFloat();
-    velocity = glm::vec2(rand(), rand());
+    direction = static_cast <float>(rand());
+    velocity = glm::vec2(static_cast<float>(rand()), static_cast<float>(rand()));
     radius = 5.0f;
 }
 void Particle::update() {
