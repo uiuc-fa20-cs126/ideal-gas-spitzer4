@@ -68,6 +68,13 @@ ci_make_app(
 )
 
 ci_make_app(
+        APP_NAME        ideal-gas-app
+        CINDER_PATH     ${CINDER_PATH}
+        SOURCES         /Users/kaleighspitzer/CLionProjects/~Cinder/my-projects/ideal-gas-spitzer4/src/visualizer/IdealGasApp.cc ${SOURCE_FILES}
+        INCLUDES        include
+)
+
+ci_make_app(
         APP_NAME        ideal-gas-test
         CINDER_PATH     ${CINDER_PATH}
         SOURCES         /Users/kaleighspitzer/CLionProjects/~Cinder/my-projects/ideal-gas-spitzer4/tests/tests_main.cc ${SOURCE_FILES} ${TEST_FILES}

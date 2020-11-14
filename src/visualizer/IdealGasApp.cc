@@ -2,7 +2,7 @@
 // Created by Kaleigh Spitzer on 11/14/20.
 //
 
-#include "IdealGasApp.h"
+#include "visualizer/IdealGasApp.h"
 
 void IdealGasApp::setup() {
     setWindowSize(600, 600);
