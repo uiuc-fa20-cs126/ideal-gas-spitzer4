@@ -9,11 +9,11 @@
 #include "cinder/Vector.h"
 
 class Particle {
-    ci::Vec2f position;
+    glm::vec2 position;
     float radius;
     float direction;
-    ci::Vec2f velocity;
-    Particle(Vec2f location);
+    glm::vec2 velocity;
+    Particle(glm::vec2 start_location);
     void Particle::update();
     void Particle::draw();
 };

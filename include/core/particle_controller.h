@@ -13,9 +13,9 @@ public:
     ParticleController();
     void update();
     void draw();
-    void addParticles();
-    void removeParticles();
-    std::list<Particle> particles;
+    void addParticles(int x, int y);
+    void removeParticles(int x, int y);
+    std::vector<Particle> particles;
 };
 
 #endif //IDEAL_GAS_SPITZER4_PARTICLE_CONTROLLER_H
