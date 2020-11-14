@@ -8,7 +8,7 @@ ParticleController::ParticleController() {
 
 }
 void ParticleController::update() {
-    for (std::vector<Particle>::iterator i = particles.begin(); I != particles.end(); ++i) {
+    for (std::vector<idealgas::Particle>::iterator i = particles.begin(); i != particles.end(); ++i) {
         i->update();
     }
 }
@@ -16,7 +16,7 @@ void ParticleController::draw() {
 
 }
 void ParticleController::addParticles(int x, int y) {
-    particles.push_back(Particle({x, y}));
+    particles.push_back(idealgas::Particle({x, y}));
 }
 void ParticleController::removeParticles() {
     particles.pop_back();

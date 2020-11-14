@@ -15,7 +15,7 @@ public:
     void draw();
     void addParticles(int x, int y);
     void removeParticles();
-    std::vector<Particle> particles;
+    std::vector<idealgas::Particle> particles;
 };
 
 #endif //IDEAL_GAS_SPITZER4_PARTICLE_CONTROLLER_H
