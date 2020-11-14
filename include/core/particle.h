@@ -9,13 +9,15 @@
 #include "cinder/Vector.h"
 
 class Particle {
+public:
     glm::vec2 position;
+    glm::vec2 velocity;
     float radius;
     float direction;
-    glm::vec2 velocity;
-    Particle(glm::vec2 start_location);
-    void Particle::update();
-    void Particle::draw();
+    float time;
+    Particle(glm::vec2 start_position);
+    void update();
+    void draw();
 };
 
 #endif //IDEAL_GAS_SPITZER4_PARTICLE_H

@@ -14,7 +14,7 @@ public:
     void update();
     void draw();
     void addParticles(int x, int y);
-    void removeParticles(int x, int y);
+    void removeParticles();
     std::vector<Particle> particles;
 };
 
