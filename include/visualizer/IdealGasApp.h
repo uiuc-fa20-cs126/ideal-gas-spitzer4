@@ -14,6 +14,8 @@
 
 class IdealGasApp : public ci::app::App {
 public:
+    idealgas::Particle particle();
+    IdealGasApp();
     void setup();
     void update();
     void draw();

@@ -7,17 +7,24 @@
 
 using namespace idealgas;
 
-idealgas::Particle particle1({600, 2});
+idealgas::Particle particle1({60, 60});
+
+IdealGasApp::IdealGasApp() {
+    setWindowSize(600, 600);
+}
 
 void IdealGasApp::setup() {
-    setWindowSize(600, 600);
+    particle1.position = {60, 60};
+    particle1.velocity = {2.0, 2.0};
 }
 void IdealGasApp::update() {
     idealgas::Simulation::changeVelocity(particle1);
+    particle1.update();
 }
 
 void IdealGasApp::draw() {
-
+    ci::gl::clear(ci::Color(0, 0, 0));
+    particle1.draw();
 }
 
 CINDER_APP(IdealGasApp, ci::app::RendererGl)

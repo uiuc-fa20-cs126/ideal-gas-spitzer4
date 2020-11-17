@@ -9,7 +9,7 @@ namespace idealgas {
         position = new_position;
         direction = static_cast <float>(rand());
         velocity = glm::vec2(static_cast<float>(rand()), static_cast<float>(rand()));
-        radius = 5.0f;
+        radius = 15.0f;
     }
 
     void Particle::update() {
@@ -18,6 +18,7 @@ namespace idealgas {
     }
 
     void Particle::draw() {
-        cinder::gl::drawSolidCircle(position, radius);
+        ci::gl::color(0, 0, 1);
+        ci::gl::drawSolidCircle(position, radius);
     }
 } // namespace idealgas

@@ -13,7 +13,9 @@ void ParticleController::update() {
     }
 }
 void ParticleController::draw() {
-
+    for (auto&& p : particles) {
+        p.draw();
+    }
 }
 void ParticleController::addParticles(int x, int y) {
     particles.push_back(idealgas::Particle({x, y}));
