@@ -24,7 +24,7 @@ namespace idealgas {
         const static size_t minYHeight = 0;
         const static size_t maxYHeight = 10;
 
-        static glm::vec2 oneParticleWallCollision(Particle particle, float xCoord, float yCoord);
+        static glm::vec2 changeVelocity(Particle particle1);
 
     private:
     };

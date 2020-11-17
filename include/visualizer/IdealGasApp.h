@@ -10,6 +10,7 @@
 #include "/Users/kaleighspitzer/CLionProjects/~Cinder/include/cinder/gl/gl.h"
 
 #include <core/particle_controller.h>
+#include <visualizer/simulation.h>
 
 class IdealGasApp : public ci::app::App {
 public:
