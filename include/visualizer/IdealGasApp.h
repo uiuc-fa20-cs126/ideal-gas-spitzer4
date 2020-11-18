@@ -14,11 +14,11 @@
 
 class IdealGasApp : public ci::app::App {
 public:
-    idealgas::Particle particle();
     IdealGasApp();
     void setup();
     void update();
     void draw();
+    void changeVelocity(idealgas::Particle particle);
 };
 
 #endif //IDEAL_GAS_IDEALGASAPP_H

@@ -8,7 +8,7 @@
 
 namespace idealgas {
 
-    glm::vec2 Simulation::changeVelocity(Particle particle1) {
+    void Simulation::changeVelocity(Particle particle1) {
         float velocityXCoord = particle1.velocity.operator[](0);
         float velocityYCoord = particle1.velocity.operator[](1);
         float positionXCoord = particle1.position.operator[](0);
@@ -21,7 +21,7 @@ namespace idealgas {
             velocityYCoord = - velocityYCoord;
         }
         newVelocity = {velocityXCoord, velocityYCoord};
-        return newVelocity;
+        particle1.velocity = newVelocity;
     }
 
 }  // namespace idealgas
