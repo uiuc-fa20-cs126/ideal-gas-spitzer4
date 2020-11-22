@@ -19,7 +19,7 @@ void IdealGasApp::setup() {
     particle1.position = {60, 60};
     particle1.velocity = {2.0, 2.0};
     particle2.position = {100, 100};
-    particle2.velocity = {2.0, 1.0};
+    particle2.velocity = {2.0, 3.0};
 }
 
 void IdealGasApp::changeVelocity(idealgas::Particle& particle1, idealgas::Particle& particle2, bool isWallCollision) {
@@ -38,10 +38,22 @@ void IdealGasApp::changeVelocity(idealgas::Particle& particle1, idealgas::Partic
          }
          particle1.velocity = {velocityXCoord, velocityYCoord};
      } else {
-        newP1Velocity = particle1.velocity - ((glm::dot((particle1.velocity - particle2.velocity), (particle1.position - particle2.position)) / (glm::length2(particle1.position - particle2.position))) * (particle1.position - particle2.position));
-        newP2Velocity = particle2.velocity - ((glm::dot((particle2.velocity - particle1.velocity), (particle2.position - particle1.position)) / (glm::length2(particle2.position - particle1.position))) * (particle2.position - particle1.position));
-        particle1.velocity = newP1Velocity;
-        particle2.velocity = newP2Velocity;
+         float P1positionXCoord = particle1.position.operator[](0);
+         float P1positionYCoord = particle1.position.operator[](1);
+         float P2positionXCoord = particle2.position.operator[](0);
+         float P2positionYCoord = particle2.position.operator[](1);
+         if ((abs(P1positionXCoord - P2positionXCoord) <= (particle1.radius + particle2.radius)) || (abs(P1positionYCoord - P2positionYCoord) <= (particle1.radius + particle2.radius))) {
+             newP1Velocity = particle1.velocity - ((glm::dot((particle1.velocity - particle2.velocity),
+                                                             (particle1.position - particle2.position)) /
+                                                    (glm::length2(particle1.position - particle2.position))) *
+                                                   (particle1.position - particle2.position));
+             newP2Velocity = particle2.velocity - ((glm::dot((particle2.velocity - particle1.velocity),
+                                                             (particle2.position - particle1.position)) /
+                                                    (glm::length2(particle2.position - particle1.position))) *
+                                                   (particle2.position - particle1.position));
+             particle1.velocity = newP1Velocity;
+             particle2.velocity = newP2Velocity;
+         }
      }
 }
 
