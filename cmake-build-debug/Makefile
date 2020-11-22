@@ -202,39 +202,6 @@ src/core/particle.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ideal-gas-test.dir/build.make CMakeFiles/ideal-gas-test.dir/src/core/particle.cc.s
 .PHONY : src/core/particle.cc.s
 
-src/core/particle_controller.o: src/core/particle_controller.cc.o
-
-.PHONY : src/core/particle_controller.o
-
-# target to build an object file
-src/core/particle_controller.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ideal-gas-app.dir/build.make CMakeFiles/ideal-gas-app.dir/src/core/particle_controller.cc.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ideal-gas-simulation.dir/build.make CMakeFiles/ideal-gas-simulation.dir/src/core/particle_controller.cc.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ideal-gas-test.dir/build.make CMakeFiles/ideal-gas-test.dir/src/core/particle_controller.cc.o
-.PHONY : src/core/particle_controller.cc.o
-
-src/core/particle_controller.i: src/core/particle_controller.cc.i
-
-.PHONY : src/core/particle_controller.i
-
-# target to preprocess a source file
-src/core/particle_controller.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ideal-gas-app.dir/build.make CMakeFiles/ideal-gas-app.dir/src/core/particle_controller.cc.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ideal-gas-simulation.dir/build.make CMakeFiles/ideal-gas-simulation.dir/src/core/particle_controller.cc.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ideal-gas-test.dir/build.make CMakeFiles/ideal-gas-test.dir/src/core/particle_controller.cc.i
-.PHONY : src/core/particle_controller.cc.i
-
-src/core/particle_controller.s: src/core/particle_controller.cc.s
-
-.PHONY : src/core/particle_controller.s
-
-# target to generate assembly for a file
-src/core/particle_controller.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ideal-gas-app.dir/build.make CMakeFiles/ideal-gas-app.dir/src/core/particle_controller.cc.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ideal-gas-simulation.dir/build.make CMakeFiles/ideal-gas-simulation.dir/src/core/particle_controller.cc.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ideal-gas-test.dir/build.make CMakeFiles/ideal-gas-test.dir/src/core/particle_controller.cc.s
-.PHONY : src/core/particle_controller.cc.s
-
 src/visualizer/IdealGasApp.o: src/visualizer/IdealGasApp.cc.o
 
 .PHONY : src/visualizer/IdealGasApp.o
@@ -336,9 +303,6 @@ help:
 	@echo "... src/core/particle.o"
 	@echo "... src/core/particle.i"
 	@echo "... src/core/particle.s"
-	@echo "... src/core/particle_controller.o"
-	@echo "... src/core/particle_controller.i"
-	@echo "... src/core/particle_controller.s"
 	@echo "... src/visualizer/IdealGasApp.o"
 	@echo "... src/visualizer/IdealGasApp.i"
 	@echo "... src/visualizer/IdealGasApp.s"

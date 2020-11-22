@@ -195,11 +195,6 @@
 			<Option target="ideal-gas-simulation"/>
 			<Option target="ideal-gas-test"/>
 		</Unit>
-		<Unit filename="/Users/kaleighspitzer/CLionProjects/~Cinder/my-projects/ideal-gas-spitzer4/src/core/particle_controller.cc">
-			<Option target="ideal-gas-app"/>
-			<Option target="ideal-gas-simulation"/>
-			<Option target="ideal-gas-test"/>
-		</Unit>
 		<Unit filename="/Users/kaleighspitzer/CLionProjects/~Cinder/my-projects/ideal-gas-spitzer4/src/visualizer/IdealGasApp.cc">
 			<Option target="ideal-gas-app"/>
 		</Unit>

@@ -2,6 +2,7 @@
 // Created by Kaleigh Spitzer on 11/14/20.
 //
 
+#include <numeric>
 #include "/Users/kaleighspitzer/CLionProjects/~Cinder/my-projects/ideal-gas-spitzer4/include/visualizer/IdealGasApp.h"
 #include "/Users/kaleighspitzer/CLionProjects/~Cinder/my-projects/ideal-gas-spitzer4/include/visualizer/simulation.h"
 
@@ -17,50 +18,44 @@ IdealGasApp::IdealGasApp() {
 void IdealGasApp::setup() {
     particle1.position = {60, 60};
     particle1.velocity = {2.0, 2.0};
+    particle2.position = {100, 100};
+    particle2.velocity = {2.0, 1.0};
 }
 
-void IdealGasApp::changeVelocity(idealgas::Particle particle) {
-    float velocityXCoord = particle.velocity.operator[](0);
-    float velocityYCoord = particle.velocity.operator[](1);
-    float positionXCoord = particle.position.operator[](0);
-    float positionYCoord = particle.position.operator[](1);
-    if (positionXCoord > getWindowWidth() || positionXCoord < 0) {
-        velocityXCoord = - velocityXCoord;
-    }
-    if (positionYCoord > getWindowHeight() || positionYCoord < 0) {
-        velocityYCoord = - velocityYCoord;
-    }
-    particle.velocity = {velocityXCoord, velocityYCoord};
+void IdealGasApp::changeVelocity(idealgas::Particle& particle1, idealgas::Particle& particle2, bool isWallCollision) {
+    glm::vec2 newP1Velocity;
+    glm::vec2 newP2Velocity;
+     if (isWallCollision) {
+         float velocityXCoord = particle1.velocity.operator[](0);
+         float velocityYCoord = particle1.velocity.operator[](1);
+         float positionXCoord = particle1.position.operator[](0);
+         float positionYCoord = particle1.position.operator[](1);
+         if (positionXCoord > getWindowWidth() || positionXCoord < 0) {
+             velocityXCoord = -velocityXCoord;
+         }
+         if (positionYCoord > getWindowHeight() || positionYCoord < 0) {
+             velocityYCoord = -velocityYCoord;
+         }
+         particle1.velocity = {velocityXCoord, velocityYCoord};
+     } else {
+        newP1Velocity = particle1.velocity - ((glm::dot((particle1.velocity - particle2.velocity), (particle1.position - particle2.position)) / (glm::length2(particle1.position - particle2.position))) * (particle1.position - particle2.position));
+        newP2Velocity = particle2.velocity - ((glm::dot((particle2.velocity - particle1.velocity), (particle2.position - particle1.position)) / (glm::length2(particle2.position - particle1.position))) * (particle2.position - particle1.position));
+        particle1.velocity = newP1Velocity;
+        particle2.velocity = newP2Velocity;
+     }
 }
 
 void IdealGasApp::update() {
-    if (particle1.position.operator[](0) < 0 || particle1.position.operator[](0) > getWindowWidth()) {
-        changeVelocity(particle1);
-    }
-    if (particle1.position.operator[](1) < 0 || particle1.position.operator[](1) > getWindowHeight()) {
-        changeVelocity(particle1);
-    }
     particle1.update();
-    //changeVelocity(particle2);
-
-    float velocityXCoord = particle1.velocity.operator[](0);
-    float velocityYCoord = particle1.velocity.operator[](1);
-    float positionXCoord = particle1.position.operator[](0);
-    float positionYCoord = particle1.position.operator[](1);
-    glm::vec2 newVelocity;
-    if (positionXCoord > getWindowWidth() || positionXCoord < 0) {
-        velocityXCoord = - velocityXCoord;
-    }
-    if (positionYCoord > getWindowHeight() || positionYCoord < 0) {
-        velocityYCoord = - velocityYCoord;
-    }
-    particle1.velocity = {velocityXCoord, velocityYCoord};
+    particle2.update();
+    changeVelocity(particle1, particle1, true);
+    changeVelocity(particle2, particle2, true);
 }
 
 void IdealGasApp::draw() {
     ci::gl::clear(ci::Color(0, 0, 0));
     particle1.draw();
-    //particle2.draw();
+    particle2.draw();
 }
 
 CINDER_APP(IdealGasApp, ci::app::RendererGl)
