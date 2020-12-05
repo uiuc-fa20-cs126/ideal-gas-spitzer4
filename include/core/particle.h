@@ -24,6 +24,7 @@ namespace idealgas {
         void draw();
 
     private:
+        size_t Compare(const Particle& particle);
     };
 }
 
