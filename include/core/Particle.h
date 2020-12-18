@@ -14,6 +14,7 @@ namespace idealgas {
         glm::vec2 position;
         glm::vec2 velocity;
         float radius;
+        float direction;
         float time;
 
         Particle();
