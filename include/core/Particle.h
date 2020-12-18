@@ -5,6 +5,9 @@
 #ifndef IDEAL_GAS_SPITZER4_2_PARTICLE_H
 #define IDEAL_GAS_SPITZER4_2_PARTICLE_H
 
+#include "cinder/gl/gl.h"
+#include "cinder/Vector.h"
+
 namespace idealgas {
     class Particle {
     public:
