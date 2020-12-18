@@ -1,0 +1,8 @@
+//
+// Created by Kaleigh Spitzer on 12/18/20.
+//
+
+#ifndef IDEAL_GAS_SPITZER4_2_PARTICLE_H
+#define IDEAL_GAS_SPITZER4_2_PARTICLE_H
+
+#endif //IDEAL_GAS_SPITZER4_2_PARTICLE_H
