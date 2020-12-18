@@ -11,6 +11,8 @@
 namespace idealgas {
     class Particle {
     public:
+        Particle();
+
         glm::vec2 position;
         glm::vec2 velocity;
         float radius;
@@ -23,8 +25,9 @@ namespace idealgas {
 
         void draw();
 
-    private:
         size_t Compare(const Particle& particle);
+
+    private:
     };
 }
 

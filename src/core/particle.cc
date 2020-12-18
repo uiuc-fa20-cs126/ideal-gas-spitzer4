@@ -18,7 +18,14 @@ namespace idealgas {
     }
 
     void Particle::draw() {
-        ci::gl::color(0, 0, 1);
+//        double red = rand() % 2;
+//        double green = rand() % 2;
+//        double blue = rand() % 2;
+//        if (red == 0 && green == 0 && blue == 0) {
+//            blue = 1;
+//        }
+//        ci::gl::color(ci::Color(red, green, blue));
+        ci::gl::color(ci::Color(0, 0, 1));
         ci::gl::drawSolidCircle(position, radius);
     }
 
@@ -28,5 +35,9 @@ namespace idealgas {
         } else {
             return 1;
         }
+    }
+
+    Particle::Particle() {
+
     }
 } // namespace idealgas

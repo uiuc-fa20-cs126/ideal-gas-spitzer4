@@ -9,7 +9,7 @@
 #include "/Users/kaleighspitzer/CLionProjects/~Cinder/include/cinder/app/RendererGl.h"
 #include "/Users/kaleighspitzer/CLionProjects/~Cinder/include/cinder/gl/gl.h"
 
-#include <visualizer/simulation.h>
+#include <core/particle.h>
 
 class IdealGasApp : public ci::app::App {
 public:
@@ -17,7 +17,7 @@ public:
     void setup();
     void update();
     void draw();
-    void changeVelocity(idealgas::Particle& particle1, idealgas::Particle& particle2, bool isWallCollision);
+    static void changeVelocity(idealgas::Particle&, idealgas::Particle&, bool);
 };
 
 #endif //IDEAL_GAS_IDEALGASAPP_H

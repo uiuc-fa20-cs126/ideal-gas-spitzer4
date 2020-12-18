@@ -19,7 +19,7 @@ if(MSVC)
     add_compile_options(/W3 /WX)
 else()
     # lots of warnings and all warnings as errors
-    #add_compile_options(-Wall -Wpedantic -Werror -Wno-reorder)
+    add_compile_options(-Wall -Wpedantic -Werror -Wno-reorder)
 endif()
 
 # FetchContent added in CMake 3.11, downloads during the configure step
@@ -49,7 +49,7 @@ get_filename_component(APP_PATH "${CMAKE_CURRENT_SOURCE_DIR}/" ABSOLUTE)
 
 include("${CINDER_PATH}/proj/cmake/modules/cinderMakeApp.cmake")
 
-list(APPEND CORE_SOURCE_FILES /Users/kaleighspitzer/CLionProjects/~Cinder/my-projects/ideal-gas-spitzer4/src/visualizer/simulation.cc)
+#list(APPEND CORE_SOURCE_FILES /Users/kaleighspitzer/CLionProjects/~Cinder/my-projects/ideal-gas-spitzer4/src/visualizer/simulation.cc)
 
 list(APPEND SOURCE_FILES    ${CORE_SOURCE_FILES}
         /Users/kaleighspitzer/CLionProjects/~Cinder/my-projects/ideal-gas-spitzer4/src/core/particle.cc)
@@ -59,12 +59,12 @@ list(APPEND SOURCE_FILES    ${CORE_SOURCE_FILES}
 #add_executable(train-model apps/train_model_main.cc ${CORE_SOURCE_FILES})
 #target_include_directories(train-model PRIVATE include)
 
-ci_make_app(
-        APP_NAME        ideal-gas-simulation
-        CINDER_PATH     ${CINDER_PATH}
-        SOURCES         /Users/kaleighspitzer/CLionProjects/~Cinder/my-projects/ideal-gas-spitzer4/src/visualizer/simulation.cc ${SOURCE_FILES}
-        INCLUDES        include
-)
+#ci_make_app(
+#        APP_NAME        ideal-gas-simulation
+#        CINDER_PATH     ${CINDER_PATH}
+#        SOURCES         /Users/kaleighspitzer/CLionProjects/~Cinder/my-projects/ideal-gas-spitzer4/src/visualizer/simulation.cc ${SOURCE_FILES}
+#        INCLUDES        include
+#)
 
 ci_make_app(
         APP_NAME        ideal-gas-app
