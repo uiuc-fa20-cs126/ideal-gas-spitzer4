@@ -19,7 +19,7 @@ if(MSVC)
     add_compile_options(/W3 /WX)
 else()
     # lots of warnings and all warnings as errors
-    add_compile_options(-Wall -Wpedantic -Werror)
+    add_compile_options(-Wall -Wpedantic -Werror -Wno-reorder)
 endif()
 
 # FetchContent added in CMake 3.11, downloads during the configure step
@@ -54,7 +54,7 @@ list(APPEND CORE_SOURCE_FILES src/core/Particle.cc)
 list(APPEND SOURCE_FILES    ${CORE_SOURCE_FILES}
         src/visualizer/IdealGasApp.cc)
 
-#list(APPEND TEST_FILES tests/rename_this_test_file.cc)
+list(APPEND TEST_FILES tests/tests_main.cc)
 
 #add_executable(train-model apps/train_model_main.cc ${CORE_SOURCE_FILES})
 #target_include_directories(train-model PRIVATE include)

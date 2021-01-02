@@ -9,6 +9,8 @@
 using namespace idealgas;
 
 size_t num_particles = 5;
+size_t boundary_min = 100;
+size_t boundary_max = 700;
 std::vector<Particle> particles;
 
 IdealGasApp::IdealGasApp() {
@@ -26,6 +28,24 @@ void IdealGasApp::setup() {
     }
 }
 
+void IdealGasApp::update() {
+    for (Particle& particle : particles) {
+        particle.update();
+        changeVelocity(particle, particle, true);
+    }
+
+    for (Particle particle1 : particles) {
+        for (Particle particle2 : particles) {
+//            if (particle1 == particle2) {
+//                continue;
+//            }
+            particle1.update();
+            particle2.update();
+            changeVelocity(particle1, particle2, false);
+        }
+    }
+}
+
 void IdealGasApp::changeVelocity(idealgas::Particle& particle1, idealgas::Particle& particle2, bool isWallCollision) {
     float P1positionXCoord = particle1.position.operator[](0);
     float P1positionYCoord = particle1.position.operator[](1);
@@ -39,10 +59,10 @@ void IdealGasApp::changeVelocity(idealgas::Particle& particle1, idealgas::Partic
     glm::vec2 newP2Velocity;
 
     if (isWallCollision) {
-        if (P1positionXCoord > 700 || P1positionXCoord < 100) {
+        if (P1positionXCoord > (boundary_max - particle1.radius) || P1positionXCoord < (boundary_min + particle1.radius)) {
             P1velocityXCoord = - P1velocityXCoord;
         }
-        if (P1positionYCoord > 700 || P1positionYCoord < 100) {
+        if (P1positionYCoord > (boundary_max - particle1.radius) || P1positionYCoord < (boundary_min + particle1.radius)) {
             P1velocityYCoord = - P1velocityYCoord;
         }
         particle1.velocity = {P1velocityXCoord, P1velocityYCoord};
@@ -68,10 +88,12 @@ void IdealGasApp::changeVelocity(idealgas::Particle& particle1, idealgas::Partic
 
 void IdealGasApp::draw() {
     ci::gl::clear(ci::Color(0, 0, 0));
-    ci::Rectf boundary(100, 100, 700, 700);
-    ci::gi::color(ci::Color(0, 1, 0));
+    ci::Rectf boundary(boundary_min, boundary_min, boundary_max, boundary_max);
+    ci::gl::color(ci::Color(0, 1, 0));
     ci::gl::drawStrokedRect(boundary);
     for (Particle particle : particles) {
         particle.draw();
     }
 }
+
+CINDER_APP(IdealGasApp, ci::app::RendererGl)

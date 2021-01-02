@@ -9,7 +9,7 @@
 #include "cinder/app/RendererGl.h"
 #include "cinder/gl/gl.h"
 
-#include ".../core/Particle.h"
+#include "/Users/kaleighspitzer/CLionProjects/~Cinder/my-projects/ideal-gas-spitzer4-2/include/core/Particle.h"
 
 class IdealGasApp : public ci::app::App {
 public:
