@@ -24,6 +24,8 @@
         void Draw();
 
         bool IsCollision(const Particle&);
+
+        void ChangeVelocity(const Particle&);
     };
 //}
 

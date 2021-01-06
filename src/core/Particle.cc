@@ -32,4 +32,14 @@
         }
         return false;
     }
+
+    void Particle::ChangeVelocity(const Particle &particle2) {
+        double dot_product = glm::dot((velocity - particle2.velocity), (position - particle2.position));
+        double length = glm::length(position - particle2.position);
+        if (glm::pow(length, 2) == 0) {
+            return;
+        }
+        glm::vec2 dist = position - particle2.position;
+        velocity -= (dist *= (dot_product / (glm::pow(length, 2))));
+    }
 //}

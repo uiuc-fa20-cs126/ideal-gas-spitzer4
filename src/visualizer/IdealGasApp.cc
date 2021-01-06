@@ -29,27 +29,38 @@ void IdealGasApp::setup() {
 }
 
 void IdealGasApp::update() {
-    for (Particle& particle : particles) {
-        particle.Update();
-        changeVelocity(particle, particle, true);
-    }
-
-    for (Particle particle1 : particles) {
-        for (Particle particle2 : particles) {
-//            if (particle1 == particle2) {
-//                continue;
-//            }
-            size_t radius_sum = particle1.radius + particle2.radius;
-            if (glm::dot((particle1.velocity - particle2.velocity), (particle1.position - particle2.position)) < 0) {
-                if (glm::distance(particle1.position, particle2.position) <= radius_sum) {
+    for (size_t i = 0; i < particles.size(); i++) {
+        Particle particle1 = particles.at(i);
+        particle1.Update();
+        for (size_t i2 = 0; i2 < particles.size(); i2++) {
+            if (i != i2) {
+                Particle particle2 = particles.at(i2);
+                if (particle1.IsCollision(particle2)) {
                     changeVelocity(particle1, particle2, false);
                 }
             }
-            particle1.Update();
-            particle2.Update();
-//            changeVelocity(particle1, particle2, false);
         }
+        changeVelocity(particle1, particle1, true);
+        particle1.Update();
+        particles.at(i) = particle1;
     }
+
+//    for (Particle particle1 : particles) {
+//        for (Particle particle2 : particles) {
+////            if (particle1 == particle2) {
+////                continue;
+////            }
+//            size_t radius_sum = particle1.radius + particle2.radius;
+//            if (glm::dot((particle1.velocity - particle2.velocity), (particle1.position - particle2.position)) < 0) {
+//                if (glm::distance(particle1.position, particle2.position) <= radius_sum) {
+//                    changeVelocity(particle1, particle2, false);
+//                }
+//            }
+//            particle1.Update();
+//            particle2.Update();
+////            changeVelocity(particle1, particle2, false);
+//        }
+//    }
 }
 
 void IdealGasApp::changeVelocity(Particle& particle1, Particle& particle2, bool isWallCollision) {
