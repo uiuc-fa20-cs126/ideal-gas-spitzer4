@@ -17,13 +17,18 @@
         float direction;
         float time;
 
+        size_t boundary_min = 100;
+        size_t boundary_max = 700;
+
         Particle();
 
         void Update();
 
         void Draw();
 
-        bool IsCollision(const Particle&);
+        bool IsParticleCollision(const Particle&);
+
+        void WallCollision();
 
         void ChangeVelocity(const Particle&);
     };

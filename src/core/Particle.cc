@@ -22,7 +22,7 @@
         ci::gl::drawSolidCircle(position, radius);
     }
 
-    bool Particle::IsCollision(const Particle &particle2) {
+    bool Particle::IsParticleCollision(const Particle &particle2) {
         glm::vec2 position_diff = position - particle2.position;
         glm::vec2 velocity_diff = velocity - particle2.velocity;
         double dot_product = glm::dot(position_diff, velocity_diff);
@@ -31,6 +31,20 @@
             return true;
         }
         return false;
+    }
+
+    void Particle::WallCollision() {
+        double P1positionXCoord = position.operator[](0);
+        double P1positionYCoord = position.operator[](1);
+        double P1velocityXCoord = velocity.operator[](0);
+        double P1velocityYCoord = velocity.operator[](1);
+        if (P1positionXCoord > (boundary_max - radius) || P1positionXCoord < (boundary_min + radius)) {
+            P1velocityXCoord = - P1velocityXCoord;
+        }
+        if (P1positionYCoord > (boundary_max - radius) || P1positionYCoord < (boundary_min + radius)) {
+            P1velocityYCoord = - P1velocityYCoord;
+        }
+        velocity = {P1velocityXCoord, P1velocityYCoord};
     }
 
     void Particle::ChangeVelocity(const Particle &particle2) {
