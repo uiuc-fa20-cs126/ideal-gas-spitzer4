@@ -98,3 +98,25 @@ TEST_CASE("Wall collision") {
         REQUIRE(x_coord_velocity == 2);
     }
 }
+
+TEST_CASE("Particle collision") {
+    SECTION("Collision is detected if particles are moving towards each other") {
+        Particle particle1;
+        particle1.position = {200, 200};
+        particle1.velocity = {2, 2};
+        Particle particle2;
+        particle2.position = {250, 250};
+        particle2.velocity = {-2, -2};
+        REQUIRE(particle1.IsParticleCollision(particle2));
+    }
+
+    SECTION("Collision is NOT detected if particles are not moving towards each other") {
+        Particle particle1;
+        particle1.position = {200, 200};
+        particle1.velocity = {2, 2};
+        Particle particle2;
+        particle2.position = {250, 250};
+        particle2.velocity = {2, 2};
+        REQUIRE(particle1.IsParticleCollision(particle2));
+    }
+}
