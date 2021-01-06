@@ -19,9 +19,11 @@
 
         Particle();
 
-        void update();
+        void Update();
 
-        void draw();
+        void Draw();
+
+        bool IsCollision(const Particle&);
     };
 //}
 

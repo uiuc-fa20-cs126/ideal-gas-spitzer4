@@ -14,7 +14,7 @@ size_t boundary_max = 700;
 std::vector<Particle> particles;
 
 IdealGasApp::IdealGasApp() {
-    setWindowSize(800, 800);
+    setWindowSize(1000, 1000);
 }
 
 void IdealGasApp::setup() {
@@ -24,13 +24,13 @@ void IdealGasApp::setup() {
 
     for (Particle& particle : particles) {
         particle.position = {rand() % 500 + 120, rand() % 500 + 120};
-        particle.velocity = {3, 3};
+        particle.velocity = {2, 2};
     }
 }
 
 void IdealGasApp::update() {
     for (Particle& particle : particles) {
-        particle.update();
+        particle.Update();
         changeVelocity(particle, particle, true);
     }
 
@@ -39,9 +39,15 @@ void IdealGasApp::update() {
 //            if (particle1 == particle2) {
 //                continue;
 //            }
-            particle1.update();
-            particle2.update();
-            changeVelocity(particle1, particle2, false);
+            size_t radius_sum = particle1.radius + particle2.radius;
+            if (glm::dot((particle1.velocity - particle2.velocity), (particle1.position - particle2.position)) < 0) {
+                if (glm::distance(particle1.position, particle2.position) <= radius_sum) {
+                    changeVelocity(particle1, particle2, false);
+                }
+            }
+            particle1.Update();
+            particle2.Update();
+//            changeVelocity(particle1, particle2, false);
         }
     }
 }
@@ -53,7 +59,7 @@ void IdealGasApp::changeVelocity(Particle& particle1, Particle& particle2, bool 
     float P1velocityYCoord = particle1.velocity.operator[](1);
     float P2positionXCoord = particle2.position.operator[](0);
     float P2positionYCoord = particle2.position.operator[](1);
-    float radius_sum = particle1.radius + particle2.radius;
+//    float radius_sum = particle1.radius + particle2.radius;
 
     glm::vec2 newP1Velocity;
     glm::vec2 newP2Velocity;
@@ -67,8 +73,12 @@ void IdealGasApp::changeVelocity(Particle& particle1, Particle& particle2, bool 
         }
         particle1.velocity = {P1velocityXCoord, P1velocityYCoord};
     } else {
-        if (glm::dot((particle1.velocity - particle2.velocity), (particle1.position - particle2.position)) < 0) {
-            if (glm::distance(particle1.position, particle2.position) <= radius_sum) {
+//        if (glm::dot((particle1.velocity - particle2.velocity), (particle1.position - particle2.position)) < 0) {
+//            if (glm::distance(particle1.position, particle2.position) <= radius_sum) {
+
+                std::cout << "Particle 1 initial: " << particle1.velocity << std::endl;
+                std::cout << "Particle 2 initial: " << particle2.velocity << std::endl;
+
                 float p1_mag = (glm::length2(particle1.position - particle2.position));
                 float p2_mag = (glm::length2(particle2.position - particle1.position));
                 if (P1positionXCoord == P2positionXCoord && P1positionYCoord == P2positionYCoord) {
@@ -83,8 +93,11 @@ void IdealGasApp::changeVelocity(Particle& particle1, Particle& particle2, bool 
                                                       (particle2.position - particle2.position));
                 particle1.velocity = newP1Velocity;
                 particle2.velocity = newP2Velocity;
-            }
-        }
+
+                std::cout << "Particle 1 NEW: " << particle1.velocity << std::endl;
+                std::cout << "Particle 2 NEW: " << particle2.velocity << std::endl;
+//            }
+//        }
     }
 }
 
@@ -94,7 +107,7 @@ void IdealGasApp::draw() {
     ci::gl::color(ci::Color(0, 1, 0));
     ci::gl::drawStrokedRect(boundary);
     for (Particle particle : particles) {
-        particle.draw();
+        particle.Draw();
     }
 }
 
