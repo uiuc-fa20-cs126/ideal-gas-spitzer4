@@ -4,9 +4,9 @@
 
 #include "../../include/core/Particle.h"
 
-namespace idealgas {
+//namespace idealgas {
     Particle::Particle() {
-        position = {300, 300}; // TODO: Use rand to initialize position based on boundary
+        position = {rand() % 500 + 120, rand() % 500 + 120};
         direction = static_cast<float>(rand());
         velocity = glm::vec2(static_cast<float>(rand()), static_cast<float>(rand()));
         radius = 15.0f;
@@ -21,4 +21,4 @@ namespace idealgas {
         ci::gl::color(0, 0, 1);
         ci::gl::drawSolidCircle(position, radius);
     }
-}
+//}

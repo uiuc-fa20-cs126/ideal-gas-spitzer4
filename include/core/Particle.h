@@ -8,7 +8,7 @@
 #include "/Users/kaleighspitzer/CLionProjects/~Cinder/include/cinder/gl/gl.h"
 #include "/Users/kaleighspitzer/CLionProjects/~Cinder/include/cinder/Vector.h"
 
-namespace idealgas {
+//namespace idealgas {
     class Particle {
     public:
         glm::vec2 position;
@@ -23,6 +23,6 @@ namespace idealgas {
 
         void draw();
     };
-}
+//}
 
 #endif //IDEAL_GAS_SPITZER4_2_PARTICLE_H

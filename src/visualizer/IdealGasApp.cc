@@ -6,7 +6,7 @@
 
 #include "../../include/visualizer/IdealGasApp.h"
 
-using namespace idealgas;
+//using namespace idealgas;
 
 size_t num_particles = 5;
 size_t boundary_min = 100;
@@ -24,7 +24,7 @@ void IdealGasApp::setup() {
 
     for (Particle& particle : particles) {
         particle.position = {rand() % 500 + 120, rand() % 500 + 120};
-        particle.velocity = {2, 2};
+        particle.velocity = {3, 3};
     }
 }
 
@@ -46,7 +46,7 @@ void IdealGasApp::update() {
     }
 }
 
-void IdealGasApp::changeVelocity(idealgas::Particle& particle1, idealgas::Particle& particle2, bool isWallCollision) {
+void IdealGasApp::changeVelocity(Particle& particle1, Particle& particle2, bool isWallCollision) {
     float P1positionXCoord = particle1.position.operator[](0);
     float P1positionYCoord = particle1.position.operator[](1);
     float P1velocityXCoord = particle1.velocity.operator[](0);
@@ -67,21 +67,23 @@ void IdealGasApp::changeVelocity(idealgas::Particle& particle1, idealgas::Partic
         }
         particle1.velocity = {P1velocityXCoord, P1velocityYCoord};
     } else {
-        if (glm::distance(particle1.position, particle2.position) <= radius_sum) {
-            float p1_mag = (glm::length2(particle1.position - particle2.position));
-            float p2_mag = (glm::length2(particle2.position - particle1.position));
-            if (P1positionXCoord == P2positionXCoord && P1positionYCoord == P2positionYCoord) {
-                p1_mag = 1;
-                p2_mag = 1;
+        if (glm::dot((particle1.velocity - particle2.velocity), (particle1.position - particle2.position)) < 0) {
+            if (glm::distance(particle1.position, particle2.position) <= radius_sum) {
+                float p1_mag = (glm::length2(particle1.position - particle2.position));
+                float p2_mag = (glm::length2(particle2.position - particle1.position));
+                if (P1positionXCoord == P2positionXCoord && P1positionYCoord == P2positionYCoord) {
+                    p1_mag = 1;
+                    p2_mag = 1;
+                }
+                newP1Velocity = particle1.velocity - ((glm::dot((particle1.velocity - particle2.velocity),
+                                                                (particle1.position - particle2.position))) / (p1_mag) *
+                                                      (particle1.position - particle2.position));
+                newP2Velocity = particle2.velocity - ((glm::dot((particle2.velocity - particle1.velocity),
+                                                                (particle2.position - particle1.position))) / (p2_mag) *
+                                                      (particle2.position - particle2.position));
+                particle1.velocity = newP1Velocity;
+                particle2.velocity = newP2Velocity;
             }
-            newP1Velocity = particle1.velocity - ((glm::dot((particle1.velocity - particle2.velocity),
-                                                            (particle1.position - particle2.position))) / (p1_mag) *
-                                                  (particle1.position - particle2.position));
-            newP2Velocity = particle2.velocity - ((glm::dot((particle2.velocity - particle1.velocity),
-                                                            (particle2.position - particle1.position))) / (p2_mag) *
-                                                  (particle2.position - particle2.position));
-            particle1.velocity = newP1Velocity;
-            particle2.velocity = newP2Velocity;
         }
     }
 }
