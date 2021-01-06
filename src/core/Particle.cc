@@ -3,6 +3,7 @@
 //
 
 #include "../../include/core/Particle.h"
+#include "../../include/visualizer/IdealGasApp.h"
 
 //namespace idealgas {
     Particle::Particle() {
