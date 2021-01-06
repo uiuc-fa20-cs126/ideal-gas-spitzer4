@@ -15,8 +15,8 @@ class IdealGasApp : public ci::app::App {
 public:
     size_t kWindowSize = 1000;
     size_t kNumParticles = 5;
-    size_t kBoundaryMin = 100;
-    size_t kBoundaryMax = 700;
+    static size_t kBoundaryMin;
+    static size_t kBoundaryMax;
 
     IdealGasApp();
     void setup();

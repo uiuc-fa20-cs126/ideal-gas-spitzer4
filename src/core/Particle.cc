@@ -39,10 +39,10 @@
         double P1positionYCoord = position.operator[](1);
         double P1velocityXCoord = velocity.operator[](0);
         double P1velocityYCoord = velocity.operator[](1);
-        if (P1positionXCoord > (boundary_max - radius) || P1positionXCoord < (boundary_min + radius)) {
+        if (P1positionXCoord > (IdealGasApp::kBoundaryMax - radius) || P1positionXCoord < (IdealGasApp::kBoundaryMin + radius)) {
             P1velocityXCoord = - P1velocityXCoord;
         }
-        if (P1positionYCoord > (boundary_max - radius) || P1positionYCoord < (boundary_min + radius)) {
+        if (P1positionYCoord > (IdealGasApp::kBoundaryMax - radius) || P1positionYCoord < (IdealGasApp::kBoundaryMin + radius)) {
             P1velocityYCoord = - P1velocityYCoord;
         }
         velocity = {P1velocityXCoord, P1velocityYCoord};

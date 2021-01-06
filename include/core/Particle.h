@@ -17,8 +17,8 @@
         float direction;
         float time;
 
-        size_t boundary_min = 100;
-        size_t boundary_max = 700;
+//        size_t boundary_min = 100;
+//        size_t boundary_max = 700;
 
         Particle();
 

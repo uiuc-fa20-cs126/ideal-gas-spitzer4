@@ -6,12 +6,9 @@
 
 #include "../../include/visualizer/IdealGasApp.h"
 
-//using namespace idealgas;
+size_t IdealGasApp::kBoundaryMin = 100;
+size_t IdealGasApp::kBoundaryMax = 700;
 
-//size_t kWindowSize = 1000;
-//size_t kNumParticles = 5;
-//size_t kBoundaryMin = 100;
-//size_t kBoundaryMax = 700;
 std::vector<Particle> particles;
 
 IdealGasApp::IdealGasApp() {

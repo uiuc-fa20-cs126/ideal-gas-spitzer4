@@ -62,14 +62,14 @@ list(APPEND TEST_FILES ${SOURCE_FILES} /Users/kaleighspitzer/CLionProjects/~Cind
 ci_make_app(
         APP_NAME        ideal-gas-app
         CINDER_PATH     ${CINDER_PATH}
-        SOURCES         src/visualizer/IdealGasApp.cc ${SOURCE_FILES}
+        SOURCES         /Users/kaleighspitzer/CLionProjects/~Cinder/my-projects/ideal-gas-spitzer4-2/src/visualizer/IdealGasApp.cc ${SOURCE_FILES}
         INCLUDES        include
 )
 
 ci_make_app(
         APP_NAME        ideal-gas-test
         CINDER_PATH     ${CINDER_PATH}
-        SOURCES         tests/tests_main.cc ${SOURCE_FILES} ${TEST_FILES}
+        SOURCES         /Users/kaleighspitzer/CLionProjects/~Cinder/my-projects/ideal-gas-spitzer4-2/tests/tests_main.cc ${SOURCE_FILES} ${TEST_FILES}
         INCLUDES        include
         LIBRARIES       catch2
 )
