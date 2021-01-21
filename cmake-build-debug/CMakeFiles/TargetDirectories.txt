@@ -1,0 +1,4 @@
+/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-1/cmake-build-debug/CMakeFiles/ideal-gas-app.dir
+/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-1/cmake-build-debug/CMakeFiles/ideal-gas-test.dir
