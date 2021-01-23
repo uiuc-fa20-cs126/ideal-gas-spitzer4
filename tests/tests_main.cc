@@ -4,7 +4,7 @@
 
 #define CATCH_CONFIG_MAIN
 #include <catch2/catch.hpp>
-#include "/Users/kaleighspitzer/CLionProjects/~Cinder/my-projects/ideal-gas-spitzer4-2/include/visualizer/IdealGasApp.h"
+#include "/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/visualizer/IdealGasApp.h"
 
 TEST_CASE("Wall collision") {
     SECTION("The particle's velocity changes when it collides with a wall") {
