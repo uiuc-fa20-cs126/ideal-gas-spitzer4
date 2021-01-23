@@ -2,14 +2,15 @@
 // Created by Kaleigh Spitzer on 12/18/20.
 //
 #pragma once
-#ifndef IDEAL_GAS_SPITZER4_2_IDEALGASAPP_H
-#define IDEAL_GAS_SPITZER4_2_IDEALGASAPP_H
+#ifndef IDEAL_GAS_SPITZER4_1_IDEALGASAPP_H
+#define IDEAL_GAS_SPITZER4_1_IDEALGASAPP_H
 
 #include "cinder/app/App.h"
 #include "cinder/app/RendererGl.h"
-//#include "cinder/gl/gl.h"
+#include "cinder/gl/gl.h"
 
-#include "/Users/kaleighspitzer/CLionProjects/~Cinder/my-projects/ideal-gas-spitzer4-2/include/core/Particle.h"
+//#include "/Users/kaleighspitzer/CLionProjects/~Cinder/my-projects/ideal-gas-spitzer4-2/include/core/Particle.h"
+#include "/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-1/include/core/Particle.h"
 
 class IdealGasApp : public ci::app::App {
 public:
@@ -24,4 +25,4 @@ public:
     void draw();
 };
 
-#endif //IDEAL_GAS_SPITZER4_2_IDEALGASAPP_H
+#endif //IDEAL_GAS_SPITZER4_1_IDEALGASAPP_H
