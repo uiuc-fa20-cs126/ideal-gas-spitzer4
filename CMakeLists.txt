@@ -19,7 +19,7 @@ if(MSVC)
     add_compile_options(/W3 /WX)
 else()
     # lots of warnings and all warnings as errors
-    add_compile_options(-Wall -Wpedantic -Werror -Wno-reorder)
+    add_compile_options(-Wall -Wpedantic -Werror -Wno-reorder -Wno-gnu-anonymous-struct -Wno-c11-extensions)
 endif()
 
 # FetchContent added in CMake 3.11, downloads during the configure step
@@ -33,7 +33,7 @@ endif()
 FetchContent_Declare(
         catch2
         GIT_REPOSITORY https://github.com/catchorg/Catch2.git
-        GIT_TAG v2.13.1
+        GIT_TAG v2.x
 )
 
 # Adds Catch2 testing library
@@ -59,7 +59,7 @@ list(APPEND TEST_FILES ${SOURCE_FILES} /Users/kaleighspitzer/CLionProjects/Cinde
 ci_make_app(
         APP_NAME        ideal-gas-app
         CINDER_PATH     ${CINDER_PATH}
-        SOURCES         src/visualizer/IdealGasApp.cc ${SOURCE_FILES}
+        SOURCES         apps/cinder_app_main.cc ${SOURCE_FILES}
         INCLUDES        include
 )
 

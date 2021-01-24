@@ -55,5 +55,3 @@ void idealgas::visualizer::IdealGasApp::draw() {
         particle.Draw();
     }
 }
-
-CINDER_APP(idealgas::visualizer::IdealGasApp, ci::app::RendererGl)
