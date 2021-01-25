@@ -9,7 +9,6 @@ particle::particle() {
     position = {rand() % 500 + 120, rand() % 500 + 120};
     direction = static_cast<float>(rand());
     velocity = glm::vec2(static_cast<float>(rand()), static_cast<float>(rand()));
-    radius = 15.0f;
 }
 
 void particle::Update() {
@@ -39,6 +38,7 @@ void particle::WallCollision() {
     double P1velocityXCoord = velocity.operator[](0);
     double P1velocityYCoord = velocity.operator[](1);
     if (P1positionXCoord >= (idealgas::visualizer::ideal_gas_app::kBoundaryMax - radius) || P1positionXCoord <= (idealgas::visualizer::ideal_gas_app::kBoundaryMin + radius)) {
+        // Check for corner collision
         if (P1positionYCoord >= (idealgas::visualizer::ideal_gas_app::kBoundaryMax - radius) || P1positionYCoord <= (idealgas::visualizer::ideal_gas_app::kBoundaryMin + radius)) {
             P1velocityXCoord = - P1velocityXCoord;
             P1velocityYCoord = - P1velocityYCoord;
@@ -46,6 +46,7 @@ void particle::WallCollision() {
             P1velocityXCoord = -P1velocityXCoord;
         }
     } else if (P1positionYCoord >= (idealgas::visualizer::ideal_gas_app::kBoundaryMax - radius) || P1positionYCoord <= (idealgas::visualizer::ideal_gas_app::kBoundaryMin + radius)) {
+        // Check for corner collision
         if (P1positionXCoord >= (idealgas::visualizer::ideal_gas_app::kBoundaryMax - radius) || P1positionXCoord <= (idealgas::visualizer::ideal_gas_app::kBoundaryMin + radius)) {
             P1velocityXCoord = - P1velocityXCoord;
             P1velocityYCoord = - P1velocityYCoord;
@@ -59,6 +60,7 @@ void particle::WallCollision() {
 void particle::ChangeVelocity(const particle &particle2) {
     double dot_product = glm::dot((velocity - particle2.velocity), (position - particle2.position));
     double length = glm::length(position - particle2.position);
+    // If particles have the same position, no collision is detected
     if (glm::pow(length, 2) == 0) {
         return;
     }

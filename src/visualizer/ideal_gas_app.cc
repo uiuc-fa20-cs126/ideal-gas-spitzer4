@@ -25,12 +25,12 @@ void idealgas::visualizer::ideal_gas_app::setup() {
 }
 
 void idealgas::visualizer::ideal_gas_app::update() {
-    for (size_t i = 0; i < particles.size(); i++) {
-        particle particle1 = particles.at(i);
+    for (size_t p_iterator = 0; p_iterator < particles.size(); p_iterator++) {
+        particle particle1 = particles.at(p_iterator);
         particle1.Update();
-        for (size_t i2 = 0; i2 < particles.size(); i2++) {
-            if (i != i2) {
-                particle particle2 = particles.at(i2);
+        for (size_t p_iterator2 = 0; p_iterator2 < particles.size(); p_iterator2++) {
+            if (p_iterator != p_iterator2) {
+                particle particle2 = particles.at(p_iterator2);
                 if (particle1.IsParticleCollision(particle2)) {
                     particle1.ChangeVelocity(particle2);
                     particle2.ChangeVelocity(particle1);
@@ -39,7 +39,7 @@ void idealgas::visualizer::ideal_gas_app::update() {
         }
         particle1.WallCollision();
         particle1.Update();
-        particles.at(i) = particle1;
+        particles.at(p_iterator) = particle1;
     }
 }
 

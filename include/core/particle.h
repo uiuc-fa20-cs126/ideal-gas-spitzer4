@@ -12,7 +12,7 @@ class particle {
 public:
     glm::vec2 position;
     glm::vec2 velocity;
-    float radius;
+    float radius = 15.0f;
     float direction;
     float time;
 
@@ -22,10 +22,20 @@ public:
 
     void Draw();
 
+    /**
+     * Checks for a collision between two particles.
+     * @return true if a collision was detected, false otherwise.
+     */
     bool IsParticleCollision(const particle&);
 
+    /**
+     * Detects a wall collision and changes the particle's velocity as needed.
+     */
     void WallCollision();
 
+    /**
+     * Used for collisions between particles. Performs calculations for new velocities.
+     */
     void ChangeVelocity(const particle&);
 };
 
