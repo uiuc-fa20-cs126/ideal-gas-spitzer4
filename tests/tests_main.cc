@@ -143,3 +143,40 @@ TEST_CASE("Particle collision") {
         REQUIRE(!particle1.IsParticleCollision(particle2));
     }
 }
+
+TEST_CASE("Changing velocity") {
+    SECTION("Calculation is correct ") {
+        particle particle1;
+        particle1.position = {235, 235};
+        particle1.velocity = {2, 2};
+        particle particle2;
+        particle2.position = {250, 250};
+        particle2.velocity = {-2, -2};
+        particle1.Update();
+        particle2.Update();
+        SECTION("Particle 1") {
+            particle1.ChangeVelocity(particle2);
+            REQUIRE(particle1.velocity.x == -2);
+            REQUIRE(particle1.velocity.y == -2);
+        }
+        SECTION("Particle 2") {
+            particle2.ChangeVelocity(particle1);
+            REQUIRE(particle2.velocity.x == 2);
+            REQUIRE(particle2.velocity.y == 2);
+        }
+    }
+
+    SECTION("Velocity does NOT change if the distance between particles is 0") {
+        particle particle1;
+        particle1.position = {200, 235};
+        particle1.velocity = {2, 2};
+        particle particle2;
+        particle2.position = {200, 235};
+        particle2.velocity = {-2, -2};
+        particle1.ChangeVelocity(particle2);
+        REQUIRE(particle1.velocity.x == 2);
+        REQUIRE(particle1.velocity.y == 2);
+        REQUIRE(particle2.velocity.x == -2);
+        REQUIRE(particle2.velocity.y == -2);
+    }
+}
