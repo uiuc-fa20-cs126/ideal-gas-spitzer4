@@ -14,8 +14,6 @@ TEST_CASE("Wall collision") {
             particle.velocity = {-2, 2};
             particle.Update();
             particle.WallCollision();
-//            std::cout << particle.velocity.x << std::endl;
-//            std::cout << particle.velocity.y << std::endl;
             double x_coord_velocity = particle.velocity.x;
             double y_coord_velocity = particle.velocity.y;
             REQUIRE(x_coord_velocity == 2.0);
@@ -111,20 +109,25 @@ TEST_CASE("Wall collision") {
         particle particle;
         particle.position = {300, 300};
         particle.velocity = {2, 2};
+        particle.Update();
         particle.WallCollision();
-        double x_coord_velocity = particle.velocity.operator[](0);
-        REQUIRE(x_coord_velocity == 2);
+        double x_coord_velocity = particle.velocity.x;
+        double y_coord_velocity = particle.velocity.y;
+        REQUIRE(x_coord_velocity == 2.0);
+        REQUIRE(y_coord_velocity == 2.0);
     }
 }
 
-TEST_CASE("particle collision") {
+TEST_CASE("Particle collision") {
     SECTION("Collision is detected if particles are moving towards each other") {
         particle particle1;
-        particle1.position = {200, 200};
+        particle1.position = {235, 235};
         particle1.velocity = {2, 2};
         particle particle2;
         particle2.position = {250, 250};
         particle2.velocity = {-2, -2};
+        particle1.Update();
+        particle2.Update();
         REQUIRE(particle1.IsParticleCollision(particle2));
     }
 
@@ -135,6 +138,8 @@ TEST_CASE("particle collision") {
         particle particle2;
         particle2.position = {250, 250};
         particle2.velocity = {2, 2};
-        REQUIRE(particle1.IsParticleCollision(particle2));
+        particle1.Update();
+        particle2.Update();
+        REQUIRE(!particle1.IsParticleCollision(particle2));
     }
 }
