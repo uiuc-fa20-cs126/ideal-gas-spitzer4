@@ -38,11 +38,20 @@ void particle::WallCollision() {
     double P1positionYCoord = position.operator[](1);
     double P1velocityXCoord = velocity.operator[](0);
     double P1velocityYCoord = velocity.operator[](1);
-    if (P1positionXCoord > (idealgas::visualizer::ideal_gas_app::kBoundaryMax - radius) || P1positionXCoord < (idealgas::visualizer::ideal_gas_app::kBoundaryMin + radius)) {
-        P1velocityXCoord = - P1velocityXCoord;
-    }
-    if (P1positionYCoord > (idealgas::visualizer::ideal_gas_app::kBoundaryMax - radius) || P1positionYCoord < (idealgas::visualizer::ideal_gas_app::kBoundaryMin + radius)) {
-        P1velocityYCoord = - P1velocityYCoord;
+    if (P1positionXCoord >= (idealgas::visualizer::ideal_gas_app::kBoundaryMax - radius) || P1positionXCoord <= (idealgas::visualizer::ideal_gas_app::kBoundaryMin + radius)) {
+        if (P1positionYCoord >= (idealgas::visualizer::ideal_gas_app::kBoundaryMax - radius) || P1positionYCoord <= (idealgas::visualizer::ideal_gas_app::kBoundaryMin + radius)) {
+            P1velocityXCoord = - P1velocityXCoord;
+            P1velocityYCoord = - P1velocityYCoord;
+        } else {
+            P1velocityXCoord = -P1velocityXCoord;
+        }
+    } else if (P1positionYCoord >= (idealgas::visualizer::ideal_gas_app::kBoundaryMax - radius) || P1positionYCoord <= (idealgas::visualizer::ideal_gas_app::kBoundaryMin + radius)) {
+        if (P1positionXCoord >= (idealgas::visualizer::ideal_gas_app::kBoundaryMax - radius) || P1positionXCoord <= (idealgas::visualizer::ideal_gas_app::kBoundaryMin + radius)) {
+            P1velocityXCoord = - P1velocityXCoord;
+            P1velocityYCoord = - P1velocityYCoord;
+        } else {
+            P1velocityYCoord = -P1velocityYCoord;
+        }
     }
     velocity = {P1velocityXCoord, P1velocityYCoord};
 }

@@ -8084,38 +8084,26 @@ detail/setup.hpp
 detail/func_vector_relational.inl
 /Users/kaleighspitzer/CLionProjects/Cinder/include/glm/detail/func_vector_relational.inl
 
-/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/core/Particle.h
+/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/core/particle.h
 /Users/kaleighspitzer/CLionProjects/Cinder/include/cinder/gl/gl.h
 -
 /Users/kaleighspitzer/CLionProjects/Cinder/include/cinder/Vector.h
 -
 
-/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/visualizer/IdealGasApp.h
+/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/visualizer/ideal_gas_app.h
 cinder/app/App.h
 /Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/visualizer/cinder/app/App.h
 cinder/app/RendererGl.h
 /Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/visualizer/cinder/app/RendererGl.h
 cinder/gl/gl.h
 /Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/visualizer/cinder/gl/gl.h
-/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/core/Particle.h
+/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/core/particle.h
 -
-
-/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/src/core/Particle.cc
-../../include/core/Particle.h
-/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/core/Particle.h
-../../include/visualizer/IdealGasApp.h
-/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/visualizer/IdealGasApp.h
-
-/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/src/visualizer/IdealGasApp.cc
-numeric
--
-../../include/visualizer/IdealGasApp.h
-/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/visualizer/IdealGasApp.h
 
 /Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/tests/tests_main.cc
 catch2/catch.hpp
 -
-/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/visualizer/IdealGasApp.h
+/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/visualizer/ideal_gas_app.h
 -
 
 _deps/catch2-src/single_include/catch2/catch.hpp

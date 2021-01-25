@@ -11,81 +11,99 @@ TEST_CASE("Wall collision") {
         SECTION("Collision with left wall") {
             particle particle;
             particle.position = {115, 300};
-            particle.velocity = {2, 2};
+            particle.velocity = {-2, 2};
+            particle.Update();
             particle.WallCollision();
-            double x_coord_velocity = particle.velocity.operator[](0);
-            REQUIRE(x_coord_velocity == -2);
+//            std::cout << particle.velocity.x << std::endl;
+//            std::cout << particle.velocity.y << std::endl;
+            double x_coord_velocity = particle.velocity.x;
+            double y_coord_velocity = particle.velocity.y;
+            REQUIRE(x_coord_velocity == 2.0);
+            REQUIRE(y_coord_velocity == 2.0);
         }
 
         SECTION("Collision with right wall") {
             particle particle;
             particle.position = {685, 300};
             particle.velocity = {2, 2};
+            particle.Update();
             particle.WallCollision();
-            double x_coord_velocity = particle.velocity.operator[](0);
-            REQUIRE(x_coord_velocity == -2);
+            double x_coord_velocity = particle.velocity.x;
+            double y_coord_velocity = particle.velocity.y;
+            REQUIRE(x_coord_velocity == -2.0);
+            REQUIRE(y_coord_velocity == 2.0);
         }
 
         SECTION("Collision with top wall") {
             particle particle;
             particle.position = {300, 685};
             particle.velocity = {2, 2};
+            particle.Update();
             particle.WallCollision();
-            double y_coord_velocity = particle.velocity.operator[](1);
-            REQUIRE(y_coord_velocity == -2);
+            double x_coord_velocity = particle.velocity.x;
+            double y_coord_velocity = particle.velocity.y;
+            REQUIRE(x_coord_velocity == 2.0);
+            REQUIRE(y_coord_velocity == -2.0);
         }
 
         SECTION("Collision with bottom wall") {
             particle particle;
             particle.position = {300, 115};
-            particle.velocity = {2, 2};
+            particle.velocity = {2, -2};
+            particle.Update();
             particle.WallCollision();
-            double y_coord_velocity = particle.velocity.operator[](1);
-            REQUIRE(y_coord_velocity == -2);
+            double x_coord_velocity = particle.velocity.x;
+            double y_coord_velocity = particle.velocity.y;
+            REQUIRE(x_coord_velocity == 2.0);
+            REQUIRE(y_coord_velocity == 2.0);
         }
 
         SECTION("Top left corner collision") {
             particle particle;
             particle.position = {115, 685};
-            particle.velocity = {2, 2};
+            particle.velocity = {-2, 2};
+            particle.Update();
             particle.WallCollision();
-            double x_coord_velocity = particle.velocity.operator[](0);
-            double y_coord_velocity = particle.velocity.operator[](1);
-            REQUIRE(x_coord_velocity == -2);
-            REQUIRE(y_coord_velocity == -2);
+            double x_coord_velocity = particle.velocity.x;
+            double y_coord_velocity = particle.velocity.y;
+            REQUIRE(x_coord_velocity == 2.0);
+            REQUIRE(y_coord_velocity == -2.0);
         }
 
         SECTION("Top right corner collision") {
             particle particle;
             particle.position = {685, 685};
             particle.velocity = {2, 2};
+            particle.Update();
             particle.WallCollision();
-            double x_coord_velocity = particle.velocity.operator[](0);
-            double y_coord_velocity = particle.velocity.operator[](1);
-            REQUIRE(x_coord_velocity == -2);
-            REQUIRE(y_coord_velocity == -2);
+            double x_coord_velocity = particle.velocity.x;
+            double y_coord_velocity = particle.velocity.y;
+            REQUIRE(x_coord_velocity == -2.0);
+            REQUIRE(y_coord_velocity == -2.0);
         }
 
         SECTION("Bottom left corner collision") {
             particle particle;
             particle.position = {115, 115};
-            particle.velocity = {2, 2};
+            particle.velocity = {-2, -2};
+            particle.Update();
             particle.WallCollision();
-            double x_coord_velocity = particle.velocity.operator[](0);
-            double y_coord_velocity = particle.velocity.operator[](1);
-            REQUIRE(x_coord_velocity == -2);
-            REQUIRE(y_coord_velocity == -2);
+            double x_coord_velocity = particle.velocity.x;
+            double y_coord_velocity = particle.velocity.y;
+            REQUIRE(x_coord_velocity == 2.0);
+            REQUIRE(y_coord_velocity == 2.0);
         }
 
         SECTION("Bottom right corner collision") {
             particle particle;
             particle.position = {685, 115};
-            particle.velocity = {2, 2};
+            particle.velocity = {2, -2};
+            particle.Update();
             particle.WallCollision();
-            double x_coord_velocity = particle.velocity.operator[](0);
-            double y_coord_velocity = particle.velocity.operator[](1);
-            REQUIRE(x_coord_velocity == -2);
-            REQUIRE(y_coord_velocity == -2);
+            double x_coord_velocity = particle.velocity.x;
+            double y_coord_velocity = particle.velocity.y;
+            REQUIRE(x_coord_velocity == -2.0);
+            REQUIRE(y_coord_velocity == 2.0);
         }
     }
 
