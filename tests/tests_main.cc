@@ -142,6 +142,18 @@ TEST_CASE("Particle collision") {
         particle2.Update();
         REQUIRE(!particle1.IsParticleCollision(particle2));
     }
+
+    SECTION("Collision is NOT detected if particles are at the same position") {
+        particle particle1;
+        particle1.position = {200, 200};
+        particle1.velocity = {2, 2};
+        particle particle2;
+        particle2.position = {200, 200};
+        particle2.velocity = {2, 2};
+        particle1.Update();
+        particle2.Update();
+        REQUIRE(!particle1.IsParticleCollision(particle2));
+    }
 }
 
 TEST_CASE("Changing velocity") {
