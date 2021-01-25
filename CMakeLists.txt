@@ -54,7 +54,7 @@ list(APPEND CORE_SOURCE_FILES /Users/kaleighspitzer/CLionProjects/Cinder/my-proj
 list(APPEND SOURCE_FILES    ${CORE_SOURCE_FILES}
         /Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/src/visualizer/ideal_gas_app.cc)
 
-list(APPEND TEST_FILES ${SOURCE_FILES} /Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/tests/tests_main.cc)
+list(APPEND TEST_FILES /Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/tests/tests_main.cc)
 
 ci_make_app(
         APP_NAME        ideal-gas-app

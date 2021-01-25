@@ -9,7 +9,6 @@
 #include "cinder/app/RendererGl.h"
 #include "cinder/gl/gl.h"
 
-//#include "/Users/kaleighspitzer/CLionProjects/~Cinder/my-projects/ideal-gas-spitzer4-2/include/core/particle.h"
 #include "/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/core/particle.h"
 
 namespace idealgas {
@@ -20,6 +19,7 @@ namespace idealgas {
             size_t kNumParticles = 5;
             static size_t kBoundaryMin;
             static size_t kBoundaryMax;
+            std::vector<particle> particles;
 
             ideal_gas_app();
             void setup();

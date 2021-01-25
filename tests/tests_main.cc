@@ -6,11 +6,15 @@
 #include <catch2/catch.hpp>
 #include "/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/visualizer/ideal_gas_app.h"
 
+size_t boundary_min = idealgas::visualizer::ideal_gas_app::kBoundaryMin;
+size_t boundary_max = idealgas::visualizer::ideal_gas_app::kBoundaryMax;
+
 TEST_CASE("Wall collision") {
     SECTION("The particle's velocity changes when it collides with a wall") {
         SECTION("Collision with left wall") {
             particle particle;
-            particle.position = {115, 300};
+            size_t min_particle_limit = boundary_min + particle.radius;
+            particle.position = {min_particle_limit, 300};
             particle.velocity = {-2, 2};
             particle.Update();
             particle.WallCollision();
@@ -22,7 +26,8 @@ TEST_CASE("Wall collision") {
 
         SECTION("Collision with right wall") {
             particle particle;
-            particle.position = {685, 300};
+            size_t max_particle_limit = boundary_max - particle.radius;
+            particle.position = {max_particle_limit, 300};
             particle.velocity = {2, 2};
             particle.Update();
             particle.WallCollision();
@@ -34,7 +39,8 @@ TEST_CASE("Wall collision") {
 
         SECTION("Collision with top wall") {
             particle particle;
-            particle.position = {300, 685};
+            size_t max_particle_limit = boundary_max - particle.radius;
+            particle.position = {300, max_particle_limit};
             particle.velocity = {2, 2};
             particle.Update();
             particle.WallCollision();
@@ -46,7 +52,8 @@ TEST_CASE("Wall collision") {
 
         SECTION("Collision with bottom wall") {
             particle particle;
-            particle.position = {300, 115};
+            size_t min_particle_limit = boundary_min + particle.radius;
+            particle.position = {300, min_particle_limit};
             particle.velocity = {2, -2};
             particle.Update();
             particle.WallCollision();
@@ -58,7 +65,9 @@ TEST_CASE("Wall collision") {
 
         SECTION("Top left corner collision") {
             particle particle;
-            particle.position = {115, 685};
+            size_t min_particle_limit = boundary_min + particle.radius;
+            size_t max_particle_limit = boundary_max - particle.radius;
+            particle.position = {min_particle_limit, max_particle_limit};
             particle.velocity = {-2, 2};
             particle.Update();
             particle.WallCollision();
@@ -70,7 +79,8 @@ TEST_CASE("Wall collision") {
 
         SECTION("Top right corner collision") {
             particle particle;
-            particle.position = {685, 685};
+            size_t max_particle_limit = boundary_max - particle.radius;
+            particle.position = {max_particle_limit, max_particle_limit};
             particle.velocity = {2, 2};
             particle.Update();
             particle.WallCollision();
@@ -82,7 +92,8 @@ TEST_CASE("Wall collision") {
 
         SECTION("Bottom left corner collision") {
             particle particle;
-            particle.position = {115, 115};
+            size_t min_particle_limit = boundary_min + particle.radius;
+            particle.position = {min_particle_limit, min_particle_limit};
             particle.velocity = {-2, -2};
             particle.Update();
             particle.WallCollision();
@@ -94,7 +105,9 @@ TEST_CASE("Wall collision") {
 
         SECTION("Bottom right corner collision") {
             particle particle;
-            particle.position = {685, 115};
+            size_t min_particle_limit = boundary_min + particle.radius;
+            size_t max_particle_limit = boundary_max - particle.radius;
+            particle.position = {max_particle_limit, min_particle_limit};
             particle.velocity = {2, -2};
             particle.Update();
             particle.WallCollision();

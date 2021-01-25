@@ -9,8 +9,6 @@
 size_t idealgas::visualizer::ideal_gas_app::kBoundaryMin = 100;
 size_t idealgas::visualizer::ideal_gas_app::kBoundaryMax = 700;
 
-std::vector<particle> particles;
-
 idealgas::visualizer::ideal_gas_app::ideal_gas_app() {
     setWindowSize(kWindowSize, kWindowSize);
 }
@@ -44,7 +42,6 @@ void idealgas::visualizer::ideal_gas_app::update() {
         particles.at(i) = particle1;
     }
 }
-
 
 void idealgas::visualizer::ideal_gas_app::draw() {
     ci::gl::clear(ci::Color(0, 0, 0));
