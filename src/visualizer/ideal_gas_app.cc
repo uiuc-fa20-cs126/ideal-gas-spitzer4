@@ -15,13 +15,16 @@ idealgas::visualizer::ideal_gas_app::ideal_gas_app() {
 
 void idealgas::visualizer::ideal_gas_app::setup() {
     for (size_t particle_index = 0; particle_index < kNumParticles; particle_index++) {
-        particles.push_back(Particle());
+//        particles.push_back(Particle());
+        red_particles.push_back(RedParticle());
+        blue_particles.push_back(BlueParticle());
+        yellow_particles.push_back(YellowParticle());
     }
 
-    for Pparticle& particle : particles) {
-        particle.position = {rand() % 500 + 120, rand() % 500 + 120};
-        particle.velocity = {2, 2};
-    }
+//    for (Particle& particle : particles) {
+//        particle.position = {rand() % 500 + 120, rand() % 500 + 120};
+//        particle.velocity = {2, 2};
+//    }
 }
 
 void idealgas::visualizer::ideal_gas_app::update() {
@@ -48,7 +51,16 @@ void idealgas::visualizer::ideal_gas_app::draw() {
     ci::Rectf boundary(kBoundaryMin, kBoundaryMin, kBoundaryMax, kBoundaryMax);
     ci::gl::color(ci::Color(0, 1, 0));
     ci::gl::drawStrokedRect(boundary);
-    for (Particle particle : particles) {
-        particle.Draw();
+//    for (Particle particle : particles) {
+//        particle.Draw();
+//    }
+    for (RedParticle redParticle : red_particles) {
+        redParticle.Draw();
+    }
+    for (BlueParticle blueParticle : blue_particles) {
+        blueParticle.Draw();
+    }
+    for (YellowParticle yellowParticle : yellow_particles) {
+        yellowParticle.Draw();
     }
 }

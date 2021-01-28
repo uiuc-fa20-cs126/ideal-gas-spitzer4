@@ -8,12 +8,14 @@
 #include "particle.h"
 
 namespace idealgas {
-    class RedParticle : public Particle {
+    class RedParticle {
     public:
         RedParticle();
+        void Draw();
     private:
         double mass_;
         float radius_;
+        glm::vec2 position_;
         glm::vec2 velocity_;
     };
 }

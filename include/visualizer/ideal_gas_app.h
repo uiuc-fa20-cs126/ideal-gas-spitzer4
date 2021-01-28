@@ -10,6 +10,9 @@
 #include "cinder/gl/gl.h"
 
 #include "/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/core/particle.h"
+#include "/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/core/red_particle.h"
+#include "/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/core/yellow_particle.h"
+#include "/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/core/blue_particle.h"
 
 namespace idealgas {
     namespace visualizer {
@@ -20,6 +23,9 @@ namespace idealgas {
             static size_t kBoundaryMin;
             static size_t kBoundaryMax;
             std::vector<Particle> particles;
+            std::vector<RedParticle> red_particles;
+            std::vector<BlueParticle> blue_particles;
+            std::vector<YellowParticle> yellow_particles;
 
             ideal_gas_app();
             void setup();
