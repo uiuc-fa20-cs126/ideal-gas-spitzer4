@@ -19,7 +19,7 @@ namespace idealgas {
             size_t kNumParticles = 5;
             static size_t kBoundaryMin;
             static size_t kBoundaryMax;
-            std::vector<particle> particles;
+            std::vector<Particle> particles;
 
             ideal_gas_app();
             void setup();

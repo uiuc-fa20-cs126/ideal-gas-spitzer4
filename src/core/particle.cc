@@ -5,23 +5,23 @@
 #include "../../include/core/particle.h"
 #include "../../include/visualizer/ideal_gas_app.h"
 
-particle::particle() {
+Particle::Particle() {
     position = {rand() % 500 + 120, rand() % 500 + 120};
     direction = static_cast<float>(rand());
     velocity = glm::vec2(static_cast<float>(rand()), static_cast<float>(rand()));
 }
 
-void particle::Update() {
+void Particle::Update() {
     position += velocity;
     time = time + 1;
 }
 
-void particle::Draw() {
+void Particle::Draw() {
     ci::gl::color(0, 0, 1);
     ci::gl::drawSolidCircle(position, radius);
 }
 
-bool particle::IsParticleCollision(const particle &particle2) {
+bool Particle::IsParticleCollision(const Particle &particle2) {
     glm::vec2 position_diff = position - particle2.position;
     glm::vec2 velocity_diff = velocity - particle2.velocity;
     double dot_product = glm::dot(position_diff, velocity_diff);
@@ -32,7 +32,7 @@ bool particle::IsParticleCollision(const particle &particle2) {
     return false;
 }
 
-void particle::WallCollision() {
+void Particle::WallCollision() {
     double P1positionXCoord = position.operator[](0);
     double P1positionYCoord = position.operator[](1);
     double P1velocityXCoord = velocity.operator[](0);
@@ -57,7 +57,7 @@ void particle::WallCollision() {
     velocity = {P1velocityXCoord, P1velocityYCoord};
 }
 
-void particle::ChangeVelocity(const particle &particle2) {
+void Particle::ChangeVelocity(const Particle &particle2) {
     double dot_product = glm::dot((velocity - particle2.velocity), (position - particle2.position));
     double length = glm::length(position - particle2.position);
     // If particles have the same position, no collision is detected

@@ -15,10 +15,10 @@ idealgas::visualizer::ideal_gas_app::ideal_gas_app() {
 
 void idealgas::visualizer::ideal_gas_app::setup() {
     for (size_t particle_index = 0; particle_index < kNumParticles; particle_index++) {
-        particles.push_back(particle());
+        particles.push_back(Particle());
     }
 
-    for (particle& particle : particles) {
+    for Pparticle& particle : particles) {
         particle.position = {rand() % 500 + 120, rand() % 500 + 120};
         particle.velocity = {2, 2};
     }
@@ -26,11 +26,11 @@ void idealgas::visualizer::ideal_gas_app::setup() {
 
 void idealgas::visualizer::ideal_gas_app::update() {
     for (size_t p_iterator = 0; p_iterator < particles.size(); p_iterator++) {
-        particle particle1 = particles.at(p_iterator);
+        Particle particle1 = particles.at(p_iterator);
         particle1.Update();
         for (size_t p_iterator2 = 0; p_iterator2 < particles.size(); p_iterator2++) {
             if (p_iterator != p_iterator2) {
-                particle particle2 = particles.at(p_iterator2);
+                Particle particle2 = particles.at(p_iterator2);
                 if (particle1.IsParticleCollision(particle2)) {
                     particle1.ChangeVelocity(particle2);
                     particle2.ChangeVelocity(particle1);
@@ -48,7 +48,7 @@ void idealgas::visualizer::ideal_gas_app::draw() {
     ci::Rectf boundary(kBoundaryMin, kBoundaryMin, kBoundaryMax, kBoundaryMax);
     ci::gl::color(ci::Color(0, 1, 0));
     ci::gl::drawStrokedRect(boundary);
-    for (particle particle : particles) {
+    for (Particle particle : particles) {
         particle.Draw();
     }
 }

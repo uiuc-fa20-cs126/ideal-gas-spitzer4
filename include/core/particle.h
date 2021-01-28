@@ -8,7 +8,7 @@
 #include "/Users/kaleighspitzer/CLionProjects/Cinder/include/cinder/gl/gl.h"
 #include "/Users/kaleighspitzer/CLionProjects/Cinder/include/cinder/Vector.h"
 
-class particle {
+class Particle {
 public:
     glm::vec2 position;
     glm::vec2 velocity;
@@ -16,7 +16,7 @@ public:
     float direction;
     float time;
 
-    particle();
+    Particle();
 
     void Update();
 
@@ -26,7 +26,7 @@ public:
      * Checks for a collision between two particles.
      * @return true if a collision was detected, false otherwise.
      */
-    bool IsParticleCollision(const particle&);
+    bool IsParticleCollision(const Particle&);
 
     /**
      * Detects a wall collision and changes the particle's velocity as needed.
@@ -36,7 +36,7 @@ public:
     /**
      * Used for collisions between particles. Performs calculations for new velocities.
      */
-    void ChangeVelocity(const particle&);
+    void ChangeVelocity(const Particle&);
 };
 
 #endif //IDEAL_GAS_SPITZER4_2_PARTICLE_H
