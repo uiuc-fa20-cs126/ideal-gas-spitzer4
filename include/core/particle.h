@@ -37,6 +37,11 @@ public:
      * Used for collisions between particles. Performs calculations for new velocities.
      */
     void ChangeVelocity(const Particle&);
+private:
+    glm::vec2 position_;
+    glm::vec2 velocity_;
+    float radius_;
+    float direction_;
 };
 
 #endif //IDEAL_GAS_SPITZER4_2_PARTICLE_H

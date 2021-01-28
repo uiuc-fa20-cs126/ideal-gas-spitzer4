@@ -2,15 +2,15 @@
 // Created by Kaleigh Spitzer on 1/28/21.
 //
 
-#ifndef IDEAL_GAS_RED_PARTICLE_H
-#define IDEAL_GAS_RED_PARTICLE_H
+#ifndef IDEAL_GAS_YELLOW_PARTICLE_H
+#define IDEAL_GAS_YELLOW_PARTICLE_H
 
 #include "particle.h"
 
 namespace idealgas {
-    class RedParticle : public Particle {
+    class YellowParticle : public Particle {
     public:
-        RedParticle();
+        YellowParticle();
     private:
         double mass_;
         float radius_;
@@ -18,4 +18,4 @@ namespace idealgas {
     };
 }
 
-#endif //IDEAL_GAS_RED_PARTICLE_H
+#endif //IDEAL_GAS_YELLOW_PARTICLE_H
