@@ -8,7 +8,7 @@
 #include "particle.h"
 
 namespace idealgas {
-    class RedParticle {
+    class RedParticle : public Particle {
     public:
         RedParticle();
         void Draw();
