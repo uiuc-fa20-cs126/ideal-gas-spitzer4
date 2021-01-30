@@ -10,14 +10,16 @@
 
 class Particle {
 public:
-    glm::vec2 position;
-    glm::vec2 velocity;
-    float radius = 15.0f;
-    float direction;
+//    glm::vec2 position;
+//    glm::vec2 velocity;
+//    float radius;
+//    float direction;
     float time;
-
     Particle();
-
+    glm::vec2 GetPosition();
+    glm::vec2 GetVelocity();
+    void SetPosition(glm::vec2);
+    void SetVelocity(glm::vec2);
     void Update();
 
 //    void Draw();
@@ -38,10 +40,10 @@ public:
      */
     void ChangeVelocity(const Particle&);
 private:
-//    glm::vec2 position_;
-//    glm::vec2 velocity_;
-//    float radius_;
-//    float direction_;
+    glm::vec2 position_;
+    glm::vec2 velocity_;
+    float radius_;
+    float direction_;
 };
 
 #endif //IDEAL_GAS_SPITZER4_2_PARTICLE_H

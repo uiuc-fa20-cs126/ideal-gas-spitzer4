@@ -41,8 +41,12 @@ void idealgas::visualizer::ideal_gas_app::setup() {
 }
 
 void idealgas::visualizer::ideal_gas_app::update() {
+//    for (Particle& p : particles) {
+//        p.Update();
+//    }
     for (size_t p_iterator = 0; p_iterator < particles.size(); p_iterator++) {
         Particle particle1 = particles.at(p_iterator);
+
         particle1.Update();
         for (size_t p_iterator2 = 0; p_iterator2 < particles.size(); p_iterator2++) {
             if (p_iterator != p_iterator2) {
