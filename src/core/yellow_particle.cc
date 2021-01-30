@@ -5,15 +5,18 @@
 #include "core/yellow_particle.h"
 
 namespace idealgas {
-    YellowParticle::YellowParticle() {
+    YellowParticle::YellowParticle() : Particle() {
         mass_ = 5;
-        velocity_ = {1, 1};
+        SetMass(mass_);
         radius_ = 20.0f;
-        position_ = {rand() % 500 + 120, rand() % 500 + 120};
+        SetRadius(radius_);
+        velocity_ = {1, 1};
+        SetVelocity(velocity_);
     }
 
     void YellowParticle::Draw() {
         ci::gl::color(1, 1, 0);
+        position_ = GetPosition();
         ci::gl::drawSolidCircle(position_, radius_);
     }
 }

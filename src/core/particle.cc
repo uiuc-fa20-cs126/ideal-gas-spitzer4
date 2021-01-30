@@ -5,10 +5,22 @@
 #include "../../include/core/particle.h"
 #include "../../include/visualizer/ideal_gas_app.h"
 
-Particle::Particle() {
+Particle::Particle(float radius, glm::vec2 velocity) {
+//    radius_ = radius;
+//    velocity_ = velocity;
     position_ = {rand() % 500 + 120, rand() % 500 + 120};
     direction_ = static_cast<float>(rand());
-    velocity_ = glm::vec2(static_cast<float>(rand()), static_cast<float>(rand()));
+//    velocity_ = glm::vec2(static_cast<float>(rand()), static_cast<float>(rand()));
+}
+
+Particle::Particle() {
+//    position_ = position;
+    position_ = {rand() % 500 + 120, rand() % 500 + 120};
+    direction_ = static_cast<float>(rand());
+}
+
+float Particle::GetRadius() {
+    return radius_;
 }
 
 glm::vec2 Particle::GetPosition() {
@@ -25,6 +37,14 @@ void Particle::SetPosition(glm::vec2 position) {
 
 void Particle::SetVelocity(glm::vec2 velocity) {
     velocity_ = velocity;
+}
+
+void Particle::SetRadius(float radius) {
+    radius_ = radius;
+}
+
+void Particle::SetMass(float mass) {
+    mass_ = mass;
 }
 
 void Particle::Update() {

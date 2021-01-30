@@ -12,6 +12,7 @@ namespace idealgas {
     public:
         RedParticle();
         void Draw();
+        void Update();
     private:
         double mass_;
         float radius_;

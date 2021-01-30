@@ -5,15 +5,18 @@
 #include "core/blue_particle.h"
 
 namespace idealgas {
-    BlueParticle::BlueParticle() {
+    BlueParticle::BlueParticle() : Particle() {
         mass_ = 1;
-        velocity_ = {5, 5};
+        SetMass(mass_);
         radius_ = 10.0f;
-        position_ = {rand() % 500 + 120, rand() % 500 + 120};
+        SetRadius(radius_);
+        velocity_ = {5, 5};
+        SetVelocity(velocity_);
     }
 
     void BlueParticle::Draw() {
         ci::gl::color(0, 0, 1);
+        position_ = GetPosition();
         ci::gl::drawSolidCircle(position_, radius_);
     }
 }

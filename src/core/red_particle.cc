@@ -5,15 +5,18 @@
 #include "core/red_particle.h"
 
 namespace idealgas {
-    RedParticle::RedParticle() {
+    RedParticle::RedParticle() : Particle() {
         mass_ = 3;
-        velocity_ = {3, 3};
+        SetMass(mass_);
         radius_ = 15.0f;
-        position_ = {rand() % 500 + 120, rand() % 500 + 120};
+        SetRadius(radius_);
+        velocity_ = {3, 3};
+        SetVelocity(velocity_);
     }
 
     void RedParticle::Draw() {
         ci::gl::color(1, 0, 0);
+        position_ = GetPosition();
         ci::gl::drawSolidCircle(position_, radius_);
     }
 }
