@@ -16,10 +16,10 @@ void Particle::Update() {
     time = time + 1;
 }
 
-void Particle::Draw() {
-    ci::gl::color(0, 0, 1);
-    ci::gl::drawSolidCircle(position, radius);
-}
+//void Particle::Draw() {
+//    ci::gl::color(0, 0, 1);
+//    ci::gl::drawSolidCircle(position, radius);
+//}
 
 bool Particle::IsParticleCollision(const Particle &particle2) {
     glm::vec2 position_diff = position - particle2.position;

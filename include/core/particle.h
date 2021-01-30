@@ -20,7 +20,7 @@ public:
 
     void Update();
 
-    void Draw();
+//    void Draw();
 
     /**
      * Checks for a collision between two particles.

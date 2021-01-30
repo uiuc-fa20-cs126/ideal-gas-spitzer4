@@ -14,11 +14,24 @@ idealgas::visualizer::ideal_gas_app::ideal_gas_app() {
 }
 
 void idealgas::visualizer::ideal_gas_app::setup() {
+    red_particles.clear();
+    blue_particles.clear();
+    yellow_particles.clear();
+    particles.clear();
     for (size_t particle_index = 0; particle_index < kNumParticles; particle_index++) {
 //        particles.push_back(Particle());
         red_particles.push_back(RedParticle());
         blue_particles.push_back(BlueParticle());
         yellow_particles.push_back(YellowParticle());
+    }
+    for (Particle red_particle : red_particles) {
+        particles.push_back(red_particle);
+    }
+    for (Particle blue_particle : blue_particles) {
+        particles.push_back(blue_particle);
+    }
+    for (Particle yellow_particle : yellow_particles) {
+        particles.push_back(yellow_particle);
     }
 
 //    for (Particle& particle : particles) {
