@@ -10,27 +10,24 @@
 
 class Particle {
 public:
-//    glm::vec2 position;
-//    glm::vec2 velocity;
-//    float radius;
-//    float mass;
-//    float direction;
     float time;
     glm::vec2 position_;
     float direction_;
+    glm::vec3 color_;
 
-    Particle(float, glm::vec2);
     Particle();
     float GetRadius();
+    double GetMass();
     glm::vec2 GetPosition();
     glm::vec2 GetVelocity();
     void SetPosition(glm::vec2);
     void SetVelocity(glm::vec2);
     void SetRadius(float);
-    void SetMass(float);
-    void Update();
+    void SetMass(double);
+    void SetColor(glm::vec3);
 
-//    void Draw();
+    void Update();
+    void Draw();
 
     /**
      * Checks for a collision between two particles.
@@ -48,10 +45,8 @@ public:
      */
     void ChangeVelocity(const Particle&);
 private:
-//    glm::vec2 position_;
     glm::vec2 velocity_;
     float radius_;
-//    float direction_;
     double mass_;
 };
 

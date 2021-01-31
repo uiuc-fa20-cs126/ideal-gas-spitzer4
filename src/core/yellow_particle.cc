@@ -12,11 +12,7 @@ namespace idealgas {
         SetRadius(radius_);
         velocity_ = {1, 1};
         SetVelocity(velocity_);
-    }
-
-    void YellowParticle::Draw() {
-        ci::gl::color(1, 1, 0);
-        position_ = GetPosition();
-        ci::gl::drawSolidCircle(position_, radius_);
+        color_ = {1, 1, 0};
+        SetColor(color_);
     }
 }
