@@ -6,6 +6,24 @@
 
 #IncludeRegexTransform: 
 
+../include/core/blue_particle.h
+particle.h
+../include/core/particle.h
+
+../include/core/particle.h
+/Users/kaleighspitzer/CLionProjects/Cinder/include/cinder/gl/gl.h
+-
+/Users/kaleighspitzer/CLionProjects/Cinder/include/cinder/Vector.h
+-
+
+../include/core/red_particle.h
+particle.h
+../include/core/particle.h
+
+../include/core/yellow_particle.h
+particle.h
+../include/core/particle.h
+
 /Users/kaleighspitzer/CLionProjects/Cinder/include/boost/assert.hpp
 boost/config.hpp
 -
@@ -8084,11 +8102,23 @@ detail/setup.hpp
 detail/func_vector_relational.inl
 /Users/kaleighspitzer/CLionProjects/Cinder/include/glm/detail/func_vector_relational.inl
 
+/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/core/blue_particle.h
+particle.h
+/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/core/particle.h
+
 /Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/core/particle.h
 /Users/kaleighspitzer/CLionProjects/Cinder/include/cinder/gl/gl.h
 -
 /Users/kaleighspitzer/CLionProjects/Cinder/include/cinder/Vector.h
 -
+
+/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/core/red_particle.h
+particle.h
+/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/core/particle.h
+
+/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/core/yellow_particle.h
+particle.h
+/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/core/particle.h
 
 /Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/visualizer/ideal_gas_app.h
 cinder/app/App.h
@@ -8099,12 +8129,30 @@ cinder/gl/gl.h
 /Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/visualizer/cinder/gl/gl.h
 /Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/core/particle.h
 -
+/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/core/red_particle.h
+-
+/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/core/yellow_particle.h
+-
+/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/core/blue_particle.h
+-
+
+/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/src/core/blue_particle.cc
+core/blue_particle.h
+/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/src/core/core/blue_particle.h
 
 /Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/src/core/particle.cc
 ../../include/core/particle.h
 /Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/core/particle.h
 ../../include/visualizer/ideal_gas_app.h
 /Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/visualizer/ideal_gas_app.h
+
+/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/src/core/red_particle.cc
+core/red_particle.h
+/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/src/core/core/red_particle.h
+
+/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/src/core/yellow_particle.cc
+core/yellow_particle.h
+/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/src/core/core/yellow_particle.h
 
 /Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/src/visualizer/ideal_gas_app.cc
 numeric

@@ -12,120 +12,120 @@ size_t boundary_max = idealgas::visualizer::ideal_gas_app::kBoundaryMax;
 TEST_CASE("Wall collision") {
     SECTION("The particle's velocity changes when it collides with a wall") {
         SECTION("Collision with left wall") {
-            particle particle;
-            size_t min_particle_limit = boundary_min + particle.radius;
-            particle.position = {min_particle_limit, 300};
-            particle.velocity = {-2, 2};
+            Particle particle;
+            size_t min_particle_limit = boundary_min + particle.GetRadius();
+            particle.position_ = {min_particle_limit, 300};
+            particle.SetVelocity({-2, 2});
             particle.Update();
             particle.WallCollision();
-            double x_coord_velocity = particle.velocity.x;
-            double y_coord_velocity = particle.velocity.y;
+            double x_coord_velocity = particle.GetVelocity().x;
+            double y_coord_velocity = particle.GetVelocity().y;
             REQUIRE(x_coord_velocity == 2.0);
             REQUIRE(y_coord_velocity == 2.0);
         }
 
         SECTION("Collision with right wall") {
-            particle particle;
-            size_t max_particle_limit = boundary_max - particle.radius;
-            particle.position = {max_particle_limit, 300};
-            particle.velocity = {2, 2};
+            Particle particle;
+            size_t max_particle_limit = boundary_max - particle.GetRadius();
+            particle.position_ = {max_particle_limit, 300};
+            particle.SetVelocity({2, 2});
             particle.Update();
             particle.WallCollision();
-            double x_coord_velocity = particle.velocity.x;
-            double y_coord_velocity = particle.velocity.y;
+            double x_coord_velocity = particle.GetVelocity().x;
+            double y_coord_velocity = particle.GetVelocity().y;
             REQUIRE(x_coord_velocity == -2.0);
             REQUIRE(y_coord_velocity == 2.0);
         }
 
         SECTION("Collision with top wall") {
-            particle particle;
-            size_t max_particle_limit = boundary_max - particle.radius;
-            particle.position = {300, max_particle_limit};
-            particle.velocity = {2, 2};
+            Particle particle;
+            size_t max_particle_limit = boundary_max - particle.GetRadius();
+            particle.position_ = {300, max_particle_limit};
+            particle.SetVelocity({2, 2});
             particle.Update();
             particle.WallCollision();
-            double x_coord_velocity = particle.velocity.x;
-            double y_coord_velocity = particle.velocity.y;
+            double x_coord_velocity = particle.GetVelocity().x;
+            double y_coord_velocity = particle.GetVelocity().y;
             REQUIRE(x_coord_velocity == 2.0);
             REQUIRE(y_coord_velocity == -2.0);
         }
 
         SECTION("Collision with bottom wall") {
-            particle particle;
-            size_t min_particle_limit = boundary_min + particle.radius;
-            particle.position = {300, min_particle_limit};
-            particle.velocity = {2, -2};
+            Particle particle;
+            size_t min_particle_limit = boundary_min + particle.GetRadius();
+            particle.position_ = {300, min_particle_limit};
+            particle.SetVelocity({2, -2});
             particle.Update();
             particle.WallCollision();
-            double x_coord_velocity = particle.velocity.x;
-            double y_coord_velocity = particle.velocity.y;
+            double x_coord_velocity = particle.GetVelocity().x;
+            double y_coord_velocity = particle.GetVelocity().y;
             REQUIRE(x_coord_velocity == 2.0);
             REQUIRE(y_coord_velocity == 2.0);
         }
 
         SECTION("Top left corner collision") {
-            particle particle;
-            size_t min_particle_limit = boundary_min + particle.radius;
-            size_t max_particle_limit = boundary_max - particle.radius;
-            particle.position = {min_particle_limit, max_particle_limit};
-            particle.velocity = {-2, 2};
+            Particle particle;
+            size_t min_particle_limit = boundary_min + particle.GetRadius();
+            size_t max_particle_limit = boundary_max - particle.GetRadius();
+            particle.position_ = {min_particle_limit, max_particle_limit};
+            particle.SetVelocity({-2, 2});
             particle.Update();
             particle.WallCollision();
-            double x_coord_velocity = particle.velocity.x;
-            double y_coord_velocity = particle.velocity.y;
+            double x_coord_velocity = particle.GetVelocity().x;
+            double y_coord_velocity = particle.GetVelocity().y;
             REQUIRE(x_coord_velocity == 2.0);
             REQUIRE(y_coord_velocity == -2.0);
         }
 
         SECTION("Top right corner collision") {
-            particle particle;
-            size_t max_particle_limit = boundary_max - particle.radius;
-            particle.position = {max_particle_limit, max_particle_limit};
-            particle.velocity = {2, 2};
+            Particle particle;
+            size_t max_particle_limit = boundary_max - particle.GetRadius();
+            particle.position_ = {max_particle_limit, max_particle_limit};
+            particle.SetVelocity({2, 2});
             particle.Update();
             particle.WallCollision();
-            double x_coord_velocity = particle.velocity.x;
-            double y_coord_velocity = particle.velocity.y;
+            double x_coord_velocity = particle.GetVelocity().x;
+            double y_coord_velocity = particle.GetVelocity().y;
             REQUIRE(x_coord_velocity == -2.0);
             REQUIRE(y_coord_velocity == -2.0);
         }
 
         SECTION("Bottom left corner collision") {
-            particle particle;
-            size_t min_particle_limit = boundary_min + particle.radius;
-            particle.position = {min_particle_limit, min_particle_limit};
-            particle.velocity = {-2, -2};
+            Particle particle;
+            size_t min_particle_limit = boundary_min + particle.GetRadius();
+            particle.position_ = {min_particle_limit, min_particle_limit};
+            particle.SetVelocity({-2, -2});
             particle.Update();
             particle.WallCollision();
-            double x_coord_velocity = particle.velocity.x;
-            double y_coord_velocity = particle.velocity.y;
+            double x_coord_velocity = particle.GetVelocity().x;
+            double y_coord_velocity = particle.GetVelocity().y;
             REQUIRE(x_coord_velocity == 2.0);
             REQUIRE(y_coord_velocity == 2.0);
         }
 
         SECTION("Bottom right corner collision") {
-            particle particle;
-            size_t min_particle_limit = boundary_min + particle.radius;
-            size_t max_particle_limit = boundary_max - particle.radius;
-            particle.position = {max_particle_limit, min_particle_limit};
-            particle.velocity = {2, -2};
+            Particle particle;
+            size_t min_particle_limit = boundary_min + particle.GetRadius();
+            size_t max_particle_limit = boundary_max - particle.GetRadius();
+            particle.position_ = {max_particle_limit, min_particle_limit};
+            particle.SetVelocity({2, -2});
             particle.Update();
             particle.WallCollision();
-            double x_coord_velocity = particle.velocity.x;
-            double y_coord_velocity = particle.velocity.y;
+            double x_coord_velocity = particle.GetVelocity().x;
+            double y_coord_velocity = particle.GetVelocity().y;
             REQUIRE(x_coord_velocity == -2.0);
             REQUIRE(y_coord_velocity == 2.0);
         }
     }
 
     SECTION("The particle's velocity does NOT update if it does not collide with a wall") {
-        particle particle;
-        particle.position = {300, 300};
-        particle.velocity = {2, 2};
+        Particle particle;
+        particle.position_ = {300, 300};
+        particle.SetVelocity({2, 2});
         particle.Update();
         particle.WallCollision();
-        double x_coord_velocity = particle.velocity.x;
-        double y_coord_velocity = particle.velocity.y;
+        double x_coord_velocity = particle.GetVelocity().x;
+        double y_coord_velocity = particle.GetVelocity().y;
         REQUIRE(x_coord_velocity == 2.0);
         REQUIRE(y_coord_velocity == 2.0);
     }
@@ -133,36 +133,36 @@ TEST_CASE("Wall collision") {
 
 TEST_CASE("Particle collision") {
     SECTION("Collision is detected if particles are moving towards each other") {
-        particle particle1;
-        particle1.position = {235, 235};
-        particle1.velocity = {2, 2};
-        particle particle2;
-        particle2.position = {250, 250};
-        particle2.velocity = {-2, -2};
+        Particle particle1;
+        particle1.position_ = {235, 235};
+        particle1.SetVelocity({2, 2});
+        Particle particle2;
+        particle2.position_ = {250, 250};
+        particle2.SetVelocity({-2, -2});
         particle1.Update();
         particle2.Update();
         REQUIRE(particle1.IsParticleCollision(particle2));
     }
 
     SECTION("Collision is NOT detected if particles are not moving towards each other") {
-        particle particle1;
-        particle1.position = {200, 200};
-        particle1.velocity = {2, 2};
-        particle particle2;
-        particle2.position = {250, 250};
-        particle2.velocity = {2, 2};
+        Particle particle1;
+        particle1.position_ = {200, 200};
+        particle1.SetVelocity({2, 2});
+        Particle particle2;
+        particle2.position_ = {250, 250};
+        particle2.SetVelocity({2, 2});
         particle1.Update();
         particle2.Update();
         REQUIRE(!particle1.IsParticleCollision(particle2));
     }
 
     SECTION("Collision is NOT detected if particles are at the same position") {
-        particle particle1;
-        particle1.position = {200, 200};
-        particle1.velocity = {2, 2};
-        particle particle2;
-        particle2.position = {200, 200};
-        particle2.velocity = {2, 2};
+        Particle particle1;
+        particle1.position_ = {200, 200};
+        particle1.SetVelocity({2, 2});
+        Particle particle2;
+        particle2.position_ = {200, 200};
+        particle2.SetVelocity({2, 2});
         particle1.Update();
         particle2.Update();
         REQUIRE(!particle1.IsParticleCollision(particle2));
@@ -171,37 +171,37 @@ TEST_CASE("Particle collision") {
 
 TEST_CASE("Changing velocity") {
     SECTION("Calculation is correct ") {
-        particle particle1;
-        particle1.position = {235, 235};
-        particle1.velocity = {2, 2};
-        particle particle2;
-        particle2.position = {250, 250};
-        particle2.velocity = {-2, -2};
+        Particle particle1;
+        particle1.position_ = {235, 235};
+        particle1.SetVelocity({2, 2});
+        Particle particle2;
+        particle2.position_ = {250, 250};
+        particle2.SetVelocity({-2, -2});
         particle1.Update();
         particle2.Update();
         SECTION("Particle 1") {
             particle1.ChangeVelocity(particle2);
-            REQUIRE(particle1.velocity.x == -2);
-            REQUIRE(particle1.velocity.y == -2);
+            REQUIRE(particle1.GetVelocity().x == -2);
+            REQUIRE(particle1.GetVelocity().y == -2);
         }
         SECTION("Particle 2") {
             particle2.ChangeVelocity(particle1);
-            REQUIRE(particle2.velocity.x == 2);
-            REQUIRE(particle2.velocity.y == 2);
+            REQUIRE(particle2.GetVelocity().x == 2);
+            REQUIRE(particle2.GetVelocity().y == 2);
         }
     }
 
     SECTION("Velocity does NOT change if the distance between particles is 0") {
-        particle particle1;
-        particle1.position = {200, 235};
-        particle1.velocity = {2, 2};
-        particle particle2;
-        particle2.position = {200, 235};
-        particle2.velocity = {-2, -2};
+        Particle particle1;
+        particle1.position_ = {200, 235};
+        particle1.SetVelocity({2, 2});
+        Particle particle2;
+        particle2.position_ = {200, 235};
+        particle2.SetVelocity({-2, -2});
         particle1.ChangeVelocity(particle2);
-        REQUIRE(particle1.velocity.x == 2);
-        REQUIRE(particle1.velocity.y == 2);
-        REQUIRE(particle2.velocity.x == -2);
-        REQUIRE(particle2.velocity.y == -2);
+        REQUIRE(particle1.GetVelocity().x == 2);
+        REQUIRE(particle1.GetVelocity().y == 2);
+        REQUIRE(particle2.GetVelocity().x == -2);
+        REQUIRE(particle2.GetVelocity().y == -2);
     }
 }
