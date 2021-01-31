@@ -148,13 +148,27 @@ TEST_CASE("Wall collision") {
 
 TEST_CASE("Particle collision") {
     SECTION("Collision is detected if particles are moving towards each other") {
-        idealgas::RedParticle particle1;
-        particle1.SetPosition({235, 235});
-        idealgas::RedParticle particle2;
-        particle2.SetPosition({250, 250});
-        particle1.Update();
-        particle2.Update();
-        REQUIRE(particle1.IsParticleCollision(particle2));
+        SECTION("Particles of same type") {
+            idealgas::RedParticle particle1;
+            particle1.SetPosition({235, 235});
+            idealgas::RedParticle particle2;
+            particle2.SetPosition({250, 250});
+            particle2.SetVelocity({-3, -3});
+            particle1.Update();
+            particle2.Update();
+            REQUIRE(particle1.IsParticleCollision(particle2));
+        }
+
+        SECTION("Particles of different types") {
+            idealgas::RedParticle particle1;
+            particle1.SetPosition({235, 235});
+            idealgas::BlueParticle particle2;
+            particle2.SetPosition({250, 250});
+            particle2.SetVelocity({-5, -5});
+            particle1.Update();
+            particle2.Update();
+            REQUIRE(particle1.IsParticleCollision(particle2));
+        }
     }
 
     SECTION("Collision is NOT detected if particles are not moving towards each other") {
