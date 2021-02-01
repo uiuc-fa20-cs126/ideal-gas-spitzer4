@@ -22,22 +22,24 @@ void idealgas::visualizer::ideal_gas_app::setup() {
 
     for (RedParticle& red_particle : red_particles) {
         particles.push_back(red_particle);
+        red_particle_list.push_back(red_particle);
     }
     for (BlueParticle& blue_particle : blue_particles) {
         particles.push_back(blue_particle);
+        blue_particle_list.push_back(blue_particle);
     }
     for (YellowParticle& yellow_particle : yellow_particles) {
         particles.push_back(yellow_particle);
+        yellow_particle_list.push_back(yellow_particle);
     }
 
-    for (Particle& particle : particles) {
-        particle.SetPosition({rand() % 500 + 120, rand() % 500 + 120});
-    }
+    histogram.SetParticleVector(red_particle_list);
 }
 
 void idealgas::visualizer::ideal_gas_app::update() {
     for (size_t p_iterator = 0; p_iterator < particles.size(); p_iterator++) {
         Particle particle1 = particles.at(p_iterator);
+        particle1.Update();
         for (size_t p_iterator2 = 0; p_iterator2 < particles.size(); p_iterator2++) {
             if (p_iterator != p_iterator2) {
                 Particle particle2 = particles.at(p_iterator2);
@@ -51,7 +53,12 @@ void idealgas::visualizer::ideal_gas_app::update() {
         particle1.WallCollision();
         particle1.Update();
         particles.at(p_iterator) = particle1;
+        histogram.AddToSpeedFreqMap();
     }
+    red_histogram.SetParticleVector(red_particle_list);
+    blue_histogram.SetParticleVector(blue_particle_list);
+    yellow_histogram.SetParticleVector(yellow_particle_list);
+//    histogram.AddToSpeedFreqMap();
 }
 
 void idealgas::visualizer::ideal_gas_app::draw() {
@@ -62,4 +69,8 @@ void idealgas::visualizer::ideal_gas_app::draw() {
     for (Particle particle : particles) {
         particle.Draw();
     }
+    red_histogram.Draw();
+    blue_histogram.Draw();
+    yellow_histogram.Draw();
 }
+

@@ -204,12 +204,12 @@ TEST_CASE("Changing velocity") {
         particle2.Update();
         SECTION("Particle 1") {
             particle1.ChangeVelocity(particle2);
-            REQUIRE(particle1.GetVelocity().x == -3.0f);
+            REQUIRE(particle1.GetVelocity().x == -3);
             REQUIRE(particle1.GetVelocity().y == -3);
         }
         SECTION("Particle 2") {
             particle2.ChangeVelocity(particle1);
-            REQUIRE(particle2.GetVelocity().x == 3.0f);
+            REQUIRE(particle2.GetVelocity().x == 3);
             REQUIRE(particle2.GetVelocity().y == 3);
         }
     }
@@ -222,7 +222,7 @@ TEST_CASE("Changing velocity") {
         particle1.ChangeVelocity(particle2);
         REQUIRE(particle1.GetVelocity().x == 3);
         REQUIRE(particle1.GetVelocity().y == 3);
-        REQUIRE(particle2.GetVelocity().x == -3);
-        REQUIRE(particle2.GetVelocity().y == -3);
+        REQUIRE(particle2.GetVelocity().x == 3);
+        REQUIRE(particle2.GetVelocity().y == 3);
     }
 }

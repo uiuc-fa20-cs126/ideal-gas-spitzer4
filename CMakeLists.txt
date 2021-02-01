@@ -55,7 +55,8 @@ list(APPEND CORE_SOURCE_FILES /Users/kaleighspitzer/CLionProjects/Cinder/my-proj
         src/core/yellow_particle.cc)
 
 list(APPEND SOURCE_FILES    ${CORE_SOURCE_FILES}
-        /Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/src/visualizer/ideal_gas_app.cc)
+        /Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/src/visualizer/ideal_gas_app.cc
+        src/visualizer/histogram.cc)
 
 list(APPEND TEST_FILES /Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/tests/tests_main.cc)
 
