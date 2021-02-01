@@ -14,10 +14,10 @@ idealgas::visualizer::Histogram::Histogram(glm::vec2 position, size_t size) {
 
 void idealgas::visualizer::Histogram::Draw() {
     ci::gl::color(ci::Color(1, 1, 1));
-    ci::Rectf rectf(750, 100, 950, 300);
+    ci::Rectf rectf(position_, {position_.x + size_, position_.y - size_});
     ci::gl::drawStrokedRect(rectf);
-    ci::gl::drawStringCentered("Speed", {850, 80}, ci::Color(1, 1, 1), ci::Font("Arial", 20));
-    ci::gl::drawStringCentered("Frequency", {750, 200}, ci::Color(1, 1, 1), ci::Font("Arial", 20));
+    ci::gl::drawStringCentered("Speed", {position_.x + 50, position_.y - 120}, ci::Color(1, 1, 1), ci::Font("Arial", 20));
+    ci::gl::drawStringCentered("Frequency", {position_.x - 50, position_.y - 50}, ci::Color(1, 1, 1), ci::Font("Arial", 20));
 
     double width;
     if (speed_freq_map_.empty()) {
@@ -25,9 +25,14 @@ void idealgas::visualizer::Histogram::Draw() {
     } else {
         width = size_ / speed_freq_map_.size();
     }
+    glm::vec2 vec = position_;
     for (auto const &i : speed_freq_map_) {
         double freq = speed_freq_map_[i.first];
-        ci::Rectf rectf1({750, 300}, {750 + width, 300 - freq});
+        freq *= 4;
+        glm::vec2 height = position_ - glm::vec2(0, freq);
+//        height *= 5;
+        vec += glm::vec2(width, 0);
+        ci::Rectf rectf1(height, vec);
         ci::gl::drawSolidRect(rectf1);
     }
 }

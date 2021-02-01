@@ -32,8 +32,12 @@ void idealgas::visualizer::ideal_gas_app::setup() {
         particles.push_back(yellow_particle);
         yellow_particle_list.push_back(yellow_particle);
     }
-
-    histogram.SetParticleVector(red_particle_list);
+    Histogram h1({800, 250}, 100);
+    Histogram h2({800, 550}, 100);
+    Histogram h3({800, 850}, 100);
+    red_histogram = h1;
+    blue_histogram = h2;
+    yellow_histogram = h3;
 }
 
 void idealgas::visualizer::ideal_gas_app::update() {
@@ -52,16 +56,29 @@ void idealgas::visualizer::ideal_gas_app::update() {
         }
         particle1.WallCollision();
         particle1.Update();
+        if (p_iterator < 10) {
+            red_particle_list.at(p_iterator) = particle1;
+        }
+        if (p_iterator >= 10 && p_iterator < 20) {
+            blue_particle_list.at(p_iterator - 10) = particle1;
+        }
+        if (p_iterator >= 20) {
+            yellow_particle_list.at(p_iterator - 20) = particle1;
+        }
         particles.at(p_iterator) = particle1;
-        histogram.AddToSpeedFreqMap();
     }
     red_histogram.SetParticleVector(red_particle_list);
     blue_histogram.SetParticleVector(blue_particle_list);
     yellow_histogram.SetParticleVector(yellow_particle_list);
-//    histogram.AddToSpeedFreqMap();
+    red_histogram.AddToSpeedFreqMap();
+    blue_histogram.AddToSpeedFreqMap();
+    yellow_histogram.AddToSpeedFreqMap();
 }
 
 void idealgas::visualizer::ideal_gas_app::draw() {
+//    red_particle_list.clear();
+//    blue_particle_list.clear();
+//    yellow_particle_list.clear();
     ci::gl::clear(ci::Color(0, 0, 0));
     ci::Rectf boundary(kBoundaryMin, kBoundaryMin, kBoundaryMax, kBoundaryMax);
     ci::gl::color(ci::Color(0, 1, 0));

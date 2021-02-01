@@ -50,6 +50,7 @@ void Particle::SetColor(glm::vec3 color) {
 void Particle::Update() {
     position_ += velocity_;
     SetPosition(position_);
+    SetVelocity(velocity_);
     time = time + 1;
 }
 
