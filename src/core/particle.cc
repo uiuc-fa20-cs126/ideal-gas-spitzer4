@@ -7,7 +7,7 @@
 
 Particle::Particle() {
     time = 0;
-    position_ = {rand() % 500 + 120, rand() % 500 + 120};
+    position_ = {rand() % 400 + 120, rand() % 400 + 120};
     direction_ = static_cast<float>(rand());
 }
 
@@ -49,8 +49,19 @@ void Particle::SetColor(glm::vec3 color) {
 
 void Particle::Update() {
     position_ += velocity_;
+    double P1positionXCoord = position_.operator[](0);
+    double P1positionYCoord = position_.operator[](1);
+    if (P1positionXCoord >= (idealgas::visualizer::ideal_gas_app::kBoundaryMax - radius_)) {
+        position_ = {idealgas::visualizer::ideal_gas_app::kBoundaryMax - radius_, P1positionYCoord};
+    } else if (P1positionXCoord <= (idealgas::visualizer::ideal_gas_app::kBoundaryMin + radius_)) {
+        position_ = {idealgas::visualizer::ideal_gas_app::kBoundaryMin + radius_, P1positionYCoord};
+    } else if (P1positionYCoord <= (idealgas::visualizer::ideal_gas_app::kBoundaryMin + radius_)) {
+        position_ = {P1positionXCoord, (idealgas::visualizer::ideal_gas_app::kBoundaryMin + radius_)};
+    } else if (P1positionYCoord >= (idealgas::visualizer::ideal_gas_app::kBoundaryMax - radius_)) {
+        position_ = {P1positionXCoord, (idealgas::visualizer::ideal_gas_app::kBoundaryMax - radius_)};
+    }
     SetPosition(position_);
-    SetVelocity(velocity_);
+//    SetVelocity(velocity_);
     time = time + 1;
 }
 
@@ -60,7 +71,6 @@ void Particle::Draw() {
 }
 
 bool Particle::IsParticleCollision(const Particle &particle2) {
-//    glm::vec2 position_diff = position_ - particle2.position_;
     position_ = GetPosition();
     velocity_ = GetVelocity();
     radius_ = GetRadius();
@@ -103,10 +113,12 @@ void Particle::WallCollision() {
     SetVelocity(velocity_);
 }
 
-void Particle::ChangeVelocity(const Particle &particle2) {
+void Particle::ChangeVelocity(Particle &particle2) {
     position_ = GetPosition();
     velocity_ = GetVelocity();
     mass_ = GetMass();
+//    WallCollision();
+//    particle2.WallCollision();
     double mass_multiplier = ((double) (2 * particle2.mass_)) / (mass_ + particle2.mass_);
     double dot_product = glm::dot((velocity_ - particle2.velocity_), (position_ - particle2.position_));
     double length = glm::length(position_ - particle2.position_);

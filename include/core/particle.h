@@ -43,7 +43,7 @@ public:
     /**
      * Used for collisions between particles. Performs calculations for new velocities.
      */
-    void ChangeVelocity(const Particle&);
+    void ChangeVelocity(Particle&);
 private:
     glm::vec2 velocity_;
     float radius_;

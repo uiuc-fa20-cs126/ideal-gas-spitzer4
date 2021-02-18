@@ -14,6 +14,7 @@ namespace idealgas {
         public:
             Histogram();
             Histogram(glm::vec2, size_t);
+            std::map<double, double> GetSpeedFreqMap();
             void Draw();
             void SetParticleVector(const std::vector<Particle>&);
             void AddToSpeedFreqMap();

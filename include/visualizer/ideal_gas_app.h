@@ -20,7 +20,7 @@ namespace idealgas {
         class ideal_gas_app : public ci::app::App {
         public:
             size_t kWindowSize = 1000;
-            size_t kNumParticles = 10;
+            size_t kNumParticles = 20;
             static size_t kBoundaryMin;
             static size_t kBoundaryMax;
             std::vector<Particle> particles;
