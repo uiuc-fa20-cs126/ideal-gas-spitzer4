@@ -58,7 +58,8 @@ list(APPEND SOURCE_FILES    ${CORE_SOURCE_FILES}
         /Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/src/visualizer/ideal_gas_app.cc
         src/visualizer/histogram.cc)
 
-list(APPEND TEST_FILES /Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/tests/tests_main.cc)
+list(APPEND TEST_FILES /Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/tests/tests_particles.cc
+        /Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/tests/tests_histogram.cc)
 
 ci_make_app(
         APP_NAME        ideal-gas-app
@@ -70,7 +71,7 @@ ci_make_app(
 ci_make_app(
         APP_NAME        ideal-gas-test
         CINDER_PATH     ${CINDER_PATH}
-        SOURCES         tests/tests_main.cc ${SOURCE_FILES} ${TEST_FILES}
+        SOURCES tests/tests_particles.cc ${SOURCE_FILES} ${TEST_FILES}
         INCLUDES        include
         LIBRARIES       catch2
 )

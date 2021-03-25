@@ -1,7 +1,7 @@
 //
 // Created by Kaleigh Spitzer on 1/31/21.
 //
-
+#pragma once
 #ifndef IDEAL_GAS_HISTOGRAM_H
 #define IDEAL_GAS_HISTOGRAM_H
 
