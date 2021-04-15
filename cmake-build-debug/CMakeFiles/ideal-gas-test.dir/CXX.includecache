@@ -6,12 +6,6 @@
 
 #IncludeRegexTransform: 
 
-../include/visualizer/histogram.h
-cinder/gl/gl.h
-../include/visualizer/cinder/gl/gl.h
-/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/core/particle.h
--
-
 /Users/kaleighspitzer/CLionProjects/Cinder/include/boost/assert.hpp
 boost/config.hpp
 -
@@ -8130,28 +8124,6 @@ cinder/gl/gl.h
 /Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/core/blue_particle.h
 -
 /Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/visualizer/histogram.h
--
-
-/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/src/core/particle.cc
-../../include/core/particle.h
-/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/core/particle.h
-../../include/visualizer/ideal_gas_app.h
-/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/visualizer/ideal_gas_app.h
-
-/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/src/visualizer/histogram.cc
-visualizer/histogram.h
-/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/src/visualizer/visualizer/histogram.h
-
-/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/src/visualizer/ideal_gas_app.cc
-numeric
--
-../../include/visualizer/ideal_gas_app.h
-/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/include/visualizer/ideal_gas_app.h
-
-/Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/tests/tests_histogram.cc
-catch2/catch.hpp
--
-visualizer/histogram.h
 -
 
 /Users/kaleighspitzer/CLionProjects/Cinder/my-projects/ideal-gas-spitzer4-2/tests/tests_particles.cc

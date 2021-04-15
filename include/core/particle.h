@@ -1,6 +1,7 @@
 //
 // Created by Kaleigh Spitzer on 12/18/20.
 //
+#pragma once
 
 #ifndef IDEAL_GAS_SPITZER4_2_PARTICLE_H
 #define IDEAL_GAS_SPITZER4_2_PARTICLE_H
